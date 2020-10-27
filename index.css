@@ -20,7 +20,7 @@ h1{
 .btn{
     display: flex;
     align-items: flex-end;
-    margin: auto;
+    margin: 10px;
     width: 50%;
 }
 
