@@ -10,7 +10,7 @@ h1{
 }
 .card{
     margin-top: 40px;
-    height: 32rem;
+    height: 30rem;
     width: 30rem;
     border: solid linen 2px;
     margin-top: 30px;
@@ -20,7 +20,7 @@ h1{
 .btn{
     display: flex;
     align-items: flex-end;
-    margin: 10px;
+    margin: auto;
     width: 50%;
 }
 
