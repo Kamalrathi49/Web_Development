@@ -1,0 +1,4772 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://canvasjs.com/assets/script/canvasjs.min.js"
+    ></script>
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* starting page 1 from here !!!!!    */
+      @media only screen and (max-width: 600px) {
+        .mainContainer {
+          overflow: hidden;
+        }
+
+        .page1_container {
+          color: white;
+          background-color: rgb(28, 110, 118);
+        }
+
+        .page1_container-content {
+          margin-left: 50px;
+        }
+
+        .page1_topTitle_webLink-container {
+          display: flex;
+          justify-content: flex-end;
+        }
+        .page1_topTitle_webLink {
+          rotate: 270deg;
+          margin-top: 80px;
+        }
+        .page1_topTitle_webLink a {
+          text-decoration: none;
+          color: white;
+          font-size: 25px;
+          cursor: pointer;
+          margin-left: -180px;
+        }
+        .page1_container_logo {
+          margin-top: 100px;
+          width: 100px;
+        }
+
+        .page1_middleTitle_seprator {
+          width: 200px;
+          height: 4px;
+          background-color: white;
+          margin-top: 50px;
+        }
+
+        .page1_middleTitle-monthly {
+          margin-top: 20px;
+          font-size: 40px;
+          font-weight: 400;
+        }
+        .page1_middleTitle-sale {
+          margin-top: -30px;
+          font-size: 30px;
+          font-weight: 900;
+        }
+        .page1_middleTitle-report {
+          font-size: 30px;
+          font-weight: 100;
+        }
+        .page1_middleTitle p {
+          font-size: 20px;
+          font-weight: 10;
+        }
+        .page1_middleTitle-month {
+          font-size: 20px;
+          font-weight: 600;
+        }
+
+        .page1_bottomTitle_container {
+          margin-top: 450px;
+          font-size: 15px;
+          font-weight: 700px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-right: 20px;
+        }
+        .page1_bottomTitle_container img {
+          margin-top: -20px;
+          width: 50px;
+          height: 40px;
+        }
+
+        /* End page 1 or Intro page here */
+
+        /* started overall performance page from here !!! */
+
+        .overAllPerformancePage {
+          margin-left: 35px;
+        }
+
+        .pageup_logo {
+          display: flex;
+          justify-content: flex-end;
+        }
+
+        .pageup_left_logo-container {
+          width: 0;
+          height: 0;
+          border-left: 20px solid transparent;
+          border-right: 150px solid #076d72;
+          border-top: 15px solid #076d72;
+        }
+        .pageup_bottom_logo-container {
+          width: 0;
+          height: 0;
+          border-top: 100px solid #076d72;
+          border-bottom: 15px solid transparent;
+          border-right: 20px solid #076d72;
+        }
+
+        /* .pageup_logo img {
+    width: 150px;
+  } */
+
+        .overAllPerformancePage_page1-heading {
+          margin-top: -30px;
+          font-size: 20px;
+          font-weight: 900;
+          margin-bottom: 60px;
+        }
+
+        .overAllPerformancePage_page1-subtitle {
+          font-size: 15px;
+          font-weight: 600;
+          /* margin-bottom: 20px; */
+        }
+
+        .overAllPerformancePage_page1-heading-underline {
+          width: 90px;
+          height: 2px;
+          background-color: rgb(28, 110, 118);
+          margin-top: -10px;
+        }
+
+        .overAllPerformancePage_page1-totalSales {
+          margin-top: 15px;
+          max-width: 350px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .overAllPerformancePage_page1-totalSales-title {
+          font-size: 14px;
+          font-weight: 900;
+          color: #2f4f4f;
+        }
+        .overAllPerformancePage_page1-totalSales h2 {
+          font-size: 16px;
+        }
+        .overAllPerformancePage_page1-totalSales p {
+          font-size: 10px;
+        }
+
+        .overAllPerformancePage_page1-saleComparisson {
+          /* margin-top: 15px; */
+          max-width: 350px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .overAllPerformancePage_page1-saleComparisson-title {
+          font-size: 14px;
+          font-weight: 600;
+        }
+
+        .overAllPerformancePage_page1-saleComparisson-months {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+
+        .overAllPerformancePage_page1-saleComparisson-currentMonths {
+          display: flex;
+          align-items: center;
+          gap: 2px;
+        }
+        .overAllPerformancePage_page1-saleComparisson-currentMonthsIcon {
+          width: 10px;
+          height: 10px;
+          background-color: #4ad9d9;
+          border-radius: 50%;
+        }
+        .overAllPerformancePage_page1-saleComparisson-MonthsTitle {
+          font-size: 13px;
+          font-weight: 600;
+          color: #2f4f4f;
+        }
+        .overAllPerformancePage_page1-saleComparisson-lastMonths {
+          display: flex;
+          align-items: center;
+          gap: 2px;
+        }
+        .overAllPerformancePage_page1-saleComparisson-lastMonthsIcon {
+          width: 10px;
+          height: 10px;
+          background-color: #5a5a5a;
+          border-radius: 50%;
+        }
+
+        /* .overAllPerformancePage_page1-saleComparisson-chart-container {
+    width: 100%;
+    margin-bottom: 50px;
+  } */
+
+        /* .overAllPerformancePage_page1-saleComparisson-chart {
+    height: 350px; 
+   border: 1px solid lightgray;
+  } */
+
+        .overAll_salesComparission_Chart {
+          max-width: 450px;
+          height: 200px;
+        }
+
+        .overAllPerformancePage_page1-salesByChannel-content {
+          margin-top: 30px;
+          /* width: 80%;  */
+          display: flex;
+          justify-content: space-between;
+          /* align-items: center; */
+          margin-right: 10px;
+        }
+        .overAllPerformancePage_page1-salesByChannel-chart {
+          /* margin-left: 50px;  */
+          max-width: 250px;
+          /* border: 1px solid lightgray; */
+        }
+
+        .overAllPerformancePage_page1-salesByChannel-details {
+          /* height: -150px; */
+        }
+        .overAllPerformancePage_page1-salesByChannel-details-container {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+        }
+        .overAllPerformancePage_page1-salesByChannel-details-container img {
+          width: 20px;
+        }
+
+        .overAllPerformancePage_page1-salesByChannel-details-container h2 {
+          color: #079ba3;
+          font-size: 16px;
+        }
+        .overAllPerformancePage_page1-salesByChannel-details-container p {
+          max-width: 200px;
+          /* margin-top:80px; */
+          font-size: 10px;
+        }
+
+        .overallPerformance_arrow_up {
+          /* margin-top: 10px; */
+          width: 0;
+          height: 0;
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+          border-bottom: 10px solid #076d72;
+        }
+
+        .overallPerformance_arrow_up_2 {
+          /* margin-top: 10px; */
+          width: 0;
+          height: 0;
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+          border-bottom: 10px solid #079ba3;
+        }
+
+        #salesbychannelDetails {
+          margin-top: -20px;
+        }
+
+        .overAllPerformancePage_page1-tableContainer {
+          margin-top: 50px;
+          margin-right: 30px;
+        }
+        .overAllPerformancePage_page1-table {
+          /* padding: 1px 1px; */
+          /* width: 60%; */
+          display: grid;
+          grid-template-columns: 1fr 1fr 0fr;
+          border-bottom: 1px solid lightgray;
+        }
+        .overAllPerformancePage_page1-table h4 {
+          font-size: 12px;
+          font-weight: 600;
+          color: #373737;
+        }
+        .overAllPerformancePage_page1-table p {
+          font-size: 10px;
+          font-weight: 600;
+          color: #373737;
+        }
+
+        .currnet_pageEnd {
+          margin-top: 50px;
+          display: flex;
+          justify-content: flex-end;
+          position: relative;
+        }
+        .currnet_pageEnd img {
+          width: 150px;
+        }
+        .pagedown_logo-container {
+          width: 0;
+          height: 0;
+          border-left: 20px solid transparent;
+          border-right: 150px solid #076d72;
+          border-bottom: 15px solid #076d72;
+        }
+        .currnet_pageEnd-number {
+          position: absolute;
+          width: 150px;
+          display: flex;
+          justify-content: center;
+          margin-top: 2px;
+          color: white;
+          font-size: 10px;
+        }
+
+        /* Ended here page 1 of overAllPerformancePage */
+
+        .overAllPerformancePage_page2_locationCantiner {
+          margin-top: -50px;
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          margin-right: 10px;
+          /* align-items: center; */
+          /* gap: 100px; */
+        }
+
+        .overallperformancepage_location_logo {
+          width: 0;
+          height: 0;
+          border-left: 40px solid transparent;
+          border-right: 40px solid transparent;
+          border-top: 40px solid #23afb6;
+        }
+
+        .overAllPerformancePage_page2-tableContainer {
+          max-width: 450px;
+        }
+
+        .overAllPerformancePage_page2-table {
+          display: grid;
+          grid-template-columns: 1.5fr 1.8fr 0fr;
+          border-bottom: 1px solid lightgray;
+        }
+        .overAllPerformancePage_page2-table h4 {
+          font-size: 12px;
+          font-weight: 600;
+          color: #373737;
+        }
+        .overAllPerformancePage_page2-table p {
+          font-size: 10px;
+          font-weight: 600;
+          color: #373737;
+        }
+
+        .overAllPerformancePage_page2_locationDetails-content p {
+          max-width: 150px;
+          margin-top: 0px;
+          color: #000000;
+          font-size: 10px;
+        }
+
+        .overAllPerformancePage_page2_locationDetails {
+          display: flex;
+          align-items: center;
+          margin-left: 10px;
+          margin-top: 50px;
+        }
+        .overAllPerformancePage_page2_locationDetails img {
+          width: 60px;
+        }
+        .overAllPerformancePage_page2_locationDetails h2 {
+          margin-left: -50px;
+          margin-top: 5px;
+          color: white;
+          font-size: 13px;
+        }
+
+        .overAllPerformancePage_page2-marketing {
+          margin-top: 50px;
+        }
+
+        .overAllPerformancePage_page2-marketing h4 {
+          margin-top: 30px;
+        }
+
+        .overAllPerformancePage_page2-marketing-chartFilter {
+          width: 60%;
+          display: flex;
+          justify-content: flex-end;
+          gap: 20px;
+          align-items: center;
+        }
+        .overAllPerformancePage_page2-marketing-chartFilterContainer {
+          display: flex;
+          align-items: center;
+          gap: 2px;
+        }
+        .overAllPerformancePage_page2-marketing-salesIcon {
+          width: 10px;
+          height: 10px;
+          background-color: #076d72;
+        }
+        .overAllPerformancePage_page2-marketing-marketingIcon {
+          width: 10px;
+          height: 10px;
+          background-color: #079ba3;
+        }
+        .overAllPerformancePage_page2-marketing-chartFilter p {
+          font-size: 12px;
+        }
+
+        .overAllPerformancePage_page2-marketing-chartWithDeatils {
+          display: flex;
+          justify-content: space-between;
+          margin-right: 10px;
+          /* gap: 50px; */
+        }
+
+        .overAllPerformancePage_page2-marketing-chart {
+          /* width: 40%; */
+          /* height: 250px; */
+          /* border: 1px solid lightgray; */
+        }
+
+        .overAllPerformancePage_page2-marketing-details {
+          max-width: 40%;
+          display: flex;
+          align-items: flex-end;
+        }
+        .overAllPerformancePage_page2-marketing-details span {
+          color: #079ba3;
+        }
+        .overAllPerformancePage_page2-marketing-details h5 {
+          /* width: 300px; */
+          font-size: 11px;
+        }
+
+        .overAllPerformancePage_page2-investment {
+          /* margin-top: 50px; */
+        }
+
+        .overAllPerformancePage_page2-investment-chartCantainer {
+          display: flex;
+          align-items: center;
+          /* gap: 100px; */
+        }
+        .overAllPerformancePage_page2-investment-chartCantainer-header {
+          display: flex;
+          /* width: 500px; */
+          justify-content: space-between;
+          align-items: center;
+          gap: 10px;
+          /* background-color: red; */
+
+          /* margin-right: 10px; */
+        }
+
+        .overAllPerformancePage_page2-investment-chartCantainer-header h5 {
+          font-size: 12px;
+        }
+        .overAllPerformancePage_page2-investment-chartFilter {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+        .overAllPerformancePage_page2-investment-chartFilterContainer {
+          display: flex;
+          align-items: center;
+          gap: 2px;
+        }
+        .overAllPerformancePage_page2-investment-returnIcon {
+          width: 10px;
+          height: 10px;
+          background-color: #076d72;
+        }
+        .overAllPerformancePage_page2-investment-investmentIcon {
+          width: 10px;
+          height: 10px;
+          background-color: #079ba3;
+        }
+        .overAllPerformancePage_page2-investment-chartCantainer-header p {
+          font-size: 10px;
+        }
+        .overAllPerformancePage_page2-investment-chart {
+          max-width: 150px;
+          /* height: 250px; */
+          /* margin-top: 30px; */
+          /* margin-left: 30px; */
+          /* border: 1px solid lightgray; */
+        }
+        .overAllPerformancePage_page2-investment-details h5 {
+          /* width: 40%; */
+          font-size: 10px;
+        }
+
+        .overAllPerformancePage_page2-investment-table {
+          margin-bottom: -20px;
+          display: grid;
+          grid-template-columns: 0.2fr 0.5fr 0.5fr 0.2fr;
+        }
+        .overAllPerformancePage_page2-investment-table div {
+          width: 18px;
+          height: 5px;
+          border-radius: 30px;
+          background-color: #079ba3;
+          margin-top: 20px;
+        }
+
+        .overAllPerformancePage_page2-investment-details span {
+          color: #079ba3;
+        }
+
+        #websitePerformance {
+          margin-left: 30px;
+        }
+
+        #saleThroughWebsiteReport-chartContainer {
+          display: flex;
+          /* gap: 100px; */
+          align-items: center;
+          justify-content: space-between;
+          margin-right: 10px;
+        }
+
+        .salethroughWebsiteReport-chart {
+          max-width: 300px;
+          height: 200px;
+        }
+        #saleThroughWebsiteReport-details {
+          max-width: 100px;
+        }
+        #saleThroughWebsiteReport-details img {
+          width: 35px;
+        }
+        #saleThroughWebsiteReport-details h4 {
+          margin-top: -5px;
+          font-size: 10px;
+        }
+        #saleThroughWebsiteReport-details span {
+          color: #076d72;
+        }
+
+        #website-container {
+          margin-top: 50px;
+        }
+
+        #orderThroughWebsite {
+          display: flex;
+          justify-content: flex-end;
+          gap: 10px;
+          width: 250px;
+          margin-top: 20px;
+        }
+
+        #orderthroughwebsite-order {
+          width: 10px;
+          height: 10px;
+          background-color: #076d72;
+        }
+
+        #orderthroughwebsite-cancelOrder {
+          width: 10px;
+          height: 10px;
+          background-color: #ff7676;
+        }
+        #orderthroughwebsite-details span {
+          color: #079ba3;
+        }
+        .orderthroughwebsite-details-titles {
+          font-size: 10px;
+        }
+        #chartWithDetails {
+          display: flex;
+          /* gap: 100px; */
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        #chartWithDetails h5 {
+          font-size: 10px;
+        }
+
+        #orderthroughwebsite-table {
+          display: grid;
+          grid-template-columns: 0.5fr 0.5fr 0.5fr;
+          margin-bottom: -20px;
+        }
+        #orderthroughwebsite-table span {
+          color: #ff7676;
+        }
+
+        #orderthroughwebsite-userSource-organic {
+          width: 10px;
+          height: 10px;
+          background-color: #076d72;
+        }
+        #orderthroughwebsite-userSource-paid {
+          width: 10px;
+          height: 10px;
+          background-color: #11a8af;
+        }
+        #orderthroughwebsite-userSource-others {
+          width: 10px;
+          height: 10px;
+          background-color: #8dd5d9;
+        }
+        #orderThroughWebsite p {
+          font-size: 10px;
+        }
+
+        .userFromDiffrentSource-chart {
+          max-width: 200px;
+        }
+
+        #orderthroughwebsite-userSource-details {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          /* gap: 40px; */
+          margin-bottom: -40px;
+          margin-right: 10px;
+        }
+        #orderthroughwebsite-userSource-details h4 {
+          font-size: 15px;
+        }
+        #orderthroughwebsite-userSource-details h6 {
+          font-size: 12px;
+        }
+        #orderthroughwebsite-userSource-details p {
+          font-size: 8px;
+        }
+        #orderthroughwebsite-userSource-details-bottomTitle h4 {
+          font-size: 12px;
+          margin-right: 10px;
+        }
+        #orderthroughwebsite-userSource-details-bottomTitle span {
+          color: #076d72;
+        }
+
+        #websiteTrafficReport-container {
+          display: flex;
+          align-items: center;
+          /* gap: 50px; */
+          justify-content: space-between;
+          margin-right: 10px;
+        }
+        #websiteTrafficReport-card {
+          margin-top: 30px;
+          width: 110px;
+          /* height: 80px; */
+          border: 1px solid gray;
+          border-radius: 4px;
+          padding: 2px 10px;
+        }
+
+        #websiteTrafficReport-card p {
+          margin-top: 0px;
+          font-size: 10px;
+        }
+        #websiteTrafficReport-card h3 {
+          margin-top: -5px;
+          font-size: 13px;
+        }
+        #websiteTrafficReport-card_compared {
+          display: flex;
+          justify-content: flex-end;
+          margin-top: -30px;
+        }
+        /* #websiteTrafficReport-card_compared h4 {
+    font: 5px;
+  } */
+        #websiteTrafficReport-card_compared h6 {
+          margin-top: -20px;
+          font-size: 7px;
+        }
+
+        #topPageView-container {
+          margin-top: 30px;
+        }
+
+        #topPageView-chart {
+          padding: 0px 15px;
+          width: 90%;
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 0.8fr;
+        }
+        .topPageView-chart-title h5 {
+          font-size: 9px;
+        }
+
+        .topPageView-chart-title {
+          height: 35px;
+          margin-top: -10px;
+        }
+
+        .topPageView-chart-color {
+          margin-top: 30px;
+          background-color: #11a8af;
+          color: white;
+        }
+
+        .topPageView-chart-overall {
+          font-size: 10px;
+          font-weight: 100;
+          color: #3c3c3c;
+        }
+
+        #convesionFunnel-container {
+          margin-left: 30px;
+          height: 1000px;
+        }
+
+        .convesionFunnel-chartContainer {
+          margin-top: 20px;
+        }
+
+        #convesionFunnel-chart {
+          margin-top: 30px;
+          display: grid;
+          grid-template-columns: 0.5fr 0.6fr 0.3fr 3fr 0.4fr 0.5fr;
+        }
+        #convesionFunnel-chart h2 {
+          font-size: 13px;
+          margin-top: 18px;
+        }
+        #convesionFunnel-chart img {
+          height: 15px;
+          margin-top: 16px;
+        }
+
+        .convesionFunnel-left-arrow-logo {
+          margin-top: 15px;
+          width: 0;
+          height: 0;
+          border-top: 8px solid transparent;
+          border-bottom: 8px solid transparent;
+          border-left: 15px solid #23afb6;
+        }
+
+        .convesionFunnel-right-arrow-logo {
+          margin-top: 15px;
+          width: 0;
+          height: 0;
+          border-top: 8px solid transparent;
+          border-bottom: 8px solid transparent;
+          border-left: 15px solid #ff7676;
+        }
+
+        .arrow-left {
+          margin-top: 23px;
+        }
+
+        #convesionFunnel-chart-title {
+          display: flex;
+          align-items: center;
+          position: relative;
+        }
+        #convesionFunnel-chart-title h2 {
+          width: 250px;
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        #convesionFunnel-chart-titleContainer {
+          width: 250px;
+          height: 30px;
+          border: 1px solid lightgray;
+        }
+
+        #purchase-container {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          margin-top: 50px;
+        }
+
+        #purchase-box {
+          /* margin-left: -150px; */
+          width: 120px;
+          height: 60px;
+          border: 1px solid gray;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        #purchase-box p {
+          margin-top: 4px;
+          font-size: 13px;
+        }
+        #purchase-box h2 {
+          margin-top: -15px;
+          font-size: 16px;
+        }
+        #purchase-box h6 {
+          margin-top: -5px;
+          font-size: 8px;
+        }
+
+        #marketPlacePerformance {
+          margin-left: 30px;
+        }
+
+        #topkeyword-chart {
+          padding: 0px 15px;
+          width: 90%;
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr 0.8fr;
+        }
+        .salesOnAmazon-chart {
+          max-width: 150px;
+        }
+        #orderByAmazon {
+          margin-top: 840px;
+        }
+      }
+
+      @media only screen and (min-width: 600px) {
+        .mainContainer {
+          overflow: hidden;
+        }
+
+        .page1_container {
+          color: white;
+          background-color: rgb(28, 110, 118);
+        }
+
+        .page1_container-content {
+          margin-left: 100px;
+        }
+
+        .page1_topTitle_webLink-container {
+          display: flex;
+          justify-content: flex-end;
+        }
+        .page1_topTitle_webLink {
+          rotate: 270deg;
+          margin-top: 80px;
+        }
+        .page1_topTitle_webLink a {
+          text-decoration: none;
+          color: white;
+          font-size: 25px;
+          cursor: pointer;
+          margin-left: -180px;
+        }
+        .page1_container_logo {
+          margin-top: 100px;
+          width: 150px;
+        }
+
+        .page1_middleTitle_seprator {
+          width: 250px;
+          height: 4px;
+          background-color: white;
+          margin-top: 50px;
+        }
+
+        .page1_middleTitle-monthly {
+          margin-top: 20px;
+          font-size: 50px;
+          font-weight: 400;
+        }
+        .page1_middleTitle-sale {
+          margin-top: -30px;
+          font-size: 40px;
+          font-weight: 900;
+        }
+        .page1_middleTitle-report {
+          font-size: 40px;
+          font-weight: 100;
+        }
+        .page1_middleTitle p {
+          font-size: 25px;
+          font-weight: 10;
+        }
+        .page1_middleTitle-month {
+          font-size: 25px;
+          font-weight: 600;
+        }
+
+        .page1_bottomTitle_container {
+          margin-top: 450px;
+          font-size: 20px;
+          font-weight: 700px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-right: 20px;
+        }
+        .page1_bottomTitle_container img {
+          margin-top: -20px;
+          width: 80px;
+          height: 60px;
+        }
+
+        /* End page 1 or Intro page here */
+
+        /* started overall performance page from here !!! */
+
+        .overAllPerformancePage {
+          margin-left: 115px;
+        }
+
+        .pageup_logo {
+          display: flex;
+          justify-content: flex-end;
+        }
+
+        .pageup_left_logo-container {
+          width: 0;
+          height: 0;
+          border-left: 20px solid transparent;
+          border-right: 200px solid #076d72;
+          border-top: 20px solid #076d72;
+        }
+        .pageup_bottom_logo-container {
+          width: 0;
+          height: 0;
+          border-top: 120px solid #076d72;
+          border-bottom: 20px solid transparent;
+          border-right: 20px solid #076d72;
+        }
+
+        /* .pageup_logo img {
+    width: 150px;
+  } */
+
+        .overAllPerformancePage_page1-heading {
+          margin-top: -30px;
+          font-size: 30px;
+          font-weight: 900;
+          margin-bottom: 60px;
+        }
+
+        .overAllPerformancePage_page1-subtitle {
+          font-size: 20px;
+          font-weight: 600;
+          /* margin-bottom: 20px; */
+        }
+
+        .overAllPerformancePage_page1-heading-underline {
+          width: 100px;
+          height: 2px;
+          background-color: rgb(28, 110, 118);
+          margin-top: -10px;
+        }
+
+        .overAllPerformancePage_page1-totalSales {
+          margin-top: 15px;
+          max-width: 450px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .overAllPerformancePage_page1-totalSales-title {
+          font-size: 14px;
+          font-weight: 900;
+          color: #2f4f4f;
+        }
+        .overAllPerformancePage_page1-totalSales h2 {
+          font-size: 16px;
+        }
+        .overAllPerformancePage_page1-totalSales p {
+          font-size: 10px;
+        }
+
+        .overAllPerformancePage_page1-saleComparisson {
+          /* margin-top: 15px; */
+          max-width: 550px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .overAllPerformancePage_page1-saleComparisson-title {
+          font-size: 20px;
+          font-weight: 600;
+        }
+
+        .overAllPerformancePage_page1-saleComparisson-months {
+          display: flex;
+          align-items: center;
+          gap: 50px;
+        }
+
+        .overAllPerformancePage_page1-saleComparisson-currentMonths {
+          display: flex;
+          align-items: center;
+          gap: 2px;
+        }
+        .overAllPerformancePage_page1-saleComparisson-currentMonthsIcon {
+          width: 10px;
+          height: 10px;
+          background-color: #4ad9d9;
+          border-radius: 50%;
+        }
+        .overAllPerformancePage_page1-saleComparisson-MonthsTitle {
+          font-size: 13px;
+          font-weight: 600;
+          color: #2f4f4f;
+        }
+        .overAllPerformancePage_page1-saleComparisson-lastMonths {
+          display: flex;
+          align-items: center;
+          gap: 2px;
+        }
+        .overAllPerformancePage_page1-saleComparisson-lastMonthsIcon {
+          width: 10px;
+          height: 10px;
+          background-color: #5a5a5a;
+          border-radius: 50%;
+        }
+
+        /* .overAllPerformancePage_page1-saleComparisson-chart-container {
+    width: 100%;
+    margin-bottom: 50px;
+  } */
+
+        /* .overAllPerformancePage_page1-saleComparisson-chart {
+    height: 350px; 
+   border: 1px solid lightgray;
+  } */
+
+        .overAll_salesComparission_Chart {
+          max-width: 650px;
+          /* height: 200px; */
+        }
+
+        .overAllPerformancePage_page1-salesByChannel-content {
+          margin-top: 30px;
+          /* width: 80%;  */
+          display: flex;
+          justify-content: space-between;
+          /* align-items: center; */
+          margin-right: 10px;
+        }
+        .overAllPerformancePage_page1-salesByChannel-chart {
+          /* margin-left: 50px;  */
+          width: 550px;
+
+          /* border: 1px solid lightgray; */
+        }
+
+        .overAllPerformancePage_page1-salesByChannel-details {
+          /* height: -150px; */
+        }
+        .overAllPerformancePage_page1-salesByChannel-details-container {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+        }
+        .overAllPerformancePage_page1-salesByChannel-details-container img {
+          width: 20px;
+        }
+
+        .overAllPerformancePage_page1-salesByChannel-details-container h2 {
+          color: #079ba3;
+          font-size: 16px;
+        }
+        .overAllPerformancePage_page1-salesByChannel-details-container p {
+          max-width: 200px;
+          /* margin-top:80px; */
+          font-size: 10px;
+        }
+
+        .overallPerformance_arrow_up {
+          /* margin-top: 10px; */
+          width: 0;
+          height: 0;
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+          border-bottom: 10px solid #076d72;
+        }
+
+        .overallPerformance_arrow_up_2 {
+          /* margin-top: 10px; */
+          width: 0;
+          height: 0;
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+          border-bottom: 10px solid #079ba3;
+        }
+
+        #salesbychannelDetails {
+          margin-top: -20px;
+        }
+
+        .overAllPerformancePage_page1-tableContainer {
+          margin-top: 50px;
+          width: 600px;
+          /* margin-right: 100px; */
+        }
+        .overAllPerformancePage_page1-table {
+          /* padding: 1px 1px; */
+          /* width: 60%; */
+          display: grid;
+          grid-template-columns: 1fr 1fr 0fr;
+          border-bottom: 1px solid lightgray;
+        }
+        .overAllPerformancePage_page1-table h4 {
+          font-size: 12px;
+          font-weight: 600;
+          color: #373737;
+        }
+        .overAllPerformancePage_page1-table p {
+          font-size: 10px;
+          font-weight: 600;
+          color: #373737;
+        }
+
+        .currnet_pageEnd {
+          margin-top: 50px;
+          display: flex;
+          justify-content: flex-end;
+          position: relative;
+        }
+        .currnet_pageEnd img {
+          width: 150px;
+        }
+        .pagedown_logo-container {
+          width: 0;
+          height: 0;
+          border-left: 20px solid transparent;
+          border-right: 200px solid #076d72;
+          border-bottom: 20px solid #076d72;
+        }
+        .currnet_pageEnd-number {
+          position: absolute;
+          width: 150px;
+          display: flex;
+          justify-content: center;
+          margin-top: 2px;
+          color: white;
+          font-size: 10px;
+        }
+
+        /* Ended here page 1 of overAllPerformancePage */
+
+        .overAllPerformancePage_page2_locationCantiner {
+          margin-top: -50px;
+          width: 90%;
+          display: flex;
+          justify-content: space-between;
+          /* margin-right: 10px; */
+          /* align-items: center; */
+          /* gap: 100px; */
+        }
+
+        .overallperformancepage_location_logo {
+          width: 0;
+          height: 0;
+          border-left: 40px solid transparent;
+          border-right: 40px solid transparent;
+          border-top: 40px solid #23afb6;
+        }
+
+        .overAllPerformancePage_page2-tableContainer {
+          width: 550px;
+        }
+
+        .overAllPerformancePage_page2-table {
+          display: grid;
+          grid-template-columns: 1.5fr 1.8fr 0fr;
+          border-bottom: 1px solid lightgray;
+        }
+        .overAllPerformancePage_page2-table h4 {
+          font-size: 12px;
+          font-weight: 600;
+          color: #373737;
+        }
+        .overAllPerformancePage_page2-table p {
+          font-size: 10px;
+          font-weight: 600;
+          color: #373737;
+        }
+
+        .overAllPerformancePage_page2_locationDetails-content p {
+          max-width: 150px;
+          margin-top: 0px;
+          color: #000000;
+          font-size: 10px;
+        }
+
+        .overAllPerformancePage_page2_locationDetails {
+          display: flex;
+          align-items: center;
+          margin-left: 10px;
+          margin-top: 50px;
+        }
+        .overAllPerformancePage_page2_locationDetails img {
+          width: 60px;
+        }
+        .overAllPerformancePage_page2_locationDetails h2 {
+          margin-left: -50px;
+          margin-top: 5px;
+          color: white;
+          font-size: 13px;
+        }
+
+        .overAllPerformancePage_page2-marketing {
+          margin-top: 50px;
+        }
+
+        .overAllPerformancePage_page2-marketing h4 {
+          margin-top: 30px;
+        }
+
+        .overAllPerformancePage_page2-marketing-chartFilter {
+          width: 50%;
+          display: flex;
+          justify-content: flex-end;
+          gap: 20px;
+          align-items: center;
+        }
+        .overAllPerformancePage_page2-marketing-chartFilterContainer {
+          display: flex;
+          align-items: center;
+          gap: 2px;
+        }
+        .overAllPerformancePage_page2-marketing-salesIcon {
+          width: 10px;
+          height: 10px;
+          background-color: #076d72;
+        }
+        .overAllPerformancePage_page2-marketing-marketingIcon {
+          width: 10px;
+          height: 10px;
+          background-color: #079ba3;
+        }
+        .overAllPerformancePage_page2-marketing-chartFilter p {
+          font-size: 12px;
+        }
+
+        .overAllPerformancePage_page2-marketing-chartWithDeatils {
+          display: flex;
+          justify-content: space-between;
+          margin-right: 100px;
+          /* gap: 50px; */
+        }
+
+        .overAllPerformancePage_page2-marketing-chart {
+          width: 60%;
+          /* height: 250px; */
+          /* border: 1px solid lightgray; */
+        }
+
+        .overAllPerformancePage_page2-marketing-details {
+          max-width: 30%;
+          display: flex;
+          align-items: flex-end;
+        }
+        .overAllPerformancePage_page2-marketing-details span {
+          color: #079ba3;
+        }
+        .overAllPerformancePage_page2-marketing-details h5 {
+          /* width: 300px; */
+          font-size: 11px;
+        }
+
+        .overAllPerformancePage_page2-investment {
+          /* margin-top: 50px; */
+        }
+
+        .overAllPerformancePage_page2-investment-chartCantainer {
+          display: flex;
+          align-items: center;
+          /* gap: 100px; */
+        }
+        .overAllPerformancePage_page2-investment-chartCantainer-header {
+          display: flex;
+          width: 300px;
+          justify-content: space-between;
+          align-items: center;
+          gap: 10px;
+          /* background-color: red; */
+
+          /* margin-right: 10px; */
+        }
+
+        .overAllPerformancePage_page2-investment-chartCantainer-header h5 {
+          font-size: 12px;
+        }
+        .overAllPerformancePage_page2-investment-chartFilter {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+        .overAllPerformancePage_page2-investment-chartFilterContainer {
+          display: flex;
+          align-items: center;
+          gap: 2px;
+        }
+        .overAllPerformancePage_page2-investment-returnIcon {
+          width: 10px;
+          height: 10px;
+          background-color: #076d72;
+        }
+        .overAllPerformancePage_page2-investment-investmentIcon {
+          width: 10px;
+          height: 10px;
+          background-color: #079ba3;
+        }
+        .overAllPerformancePage_page2-investment-chartCantainer-header p {
+          font-size: 10px;
+        }
+        .overAllPerformancePage_page2-investment-chart {
+          max-width: 250px;
+          /* height: 250px; */
+          /* margin-top: 30px; */
+          /* margin-left: 30px; */
+          /* border: 1px solid lightgray; */
+        }
+        .overAllPerformancePage_page2-investment-details h5 {
+          /* width: 40%; */
+          font-size: 10px;
+        }
+
+        .overAllPerformancePage_page2-investment-table {
+          margin-bottom: -20px;
+          display: grid;
+          grid-template-columns: 0.2fr 0.5fr 0.5fr 0.2fr;
+        }
+        .overAllPerformancePage_page2-investment-table div {
+          width: 18px;
+          height: 5px;
+          border-radius: 30px;
+          background-color: #079ba3;
+          margin-top: 20px;
+        }
+
+        .overAllPerformancePage_page2-investment-details span {
+          color: #079ba3;
+        }
+
+        #websitePerformance {
+          margin-left: 115px;
+        }
+
+        #saleThroughWebsiteReport-chartContainer {
+          display: flex;
+          /* gap: 100px; */
+          align-items: center;
+          justify-content: space-between;
+          margin-right: 100px;
+        }
+
+        .salethroughWebsiteReport-chart {
+          width: 500px;
+          /* height: 200px; */
+        }
+        #saleThroughWebsiteReport-details {
+          max-width: 100px;
+        }
+        #saleThroughWebsiteReport-details img {
+          width: 55px;
+        }
+        #saleThroughWebsiteReport-details h4 {
+          margin-top: -5px;
+          font-size: 12px;
+        }
+        #saleThroughWebsiteReport-details span {
+          color: #076d72;
+        }
+
+        #website-container {
+          margin-top: 50px;
+        }
+
+        #orderThroughWebsite {
+          display: flex;
+          justify-content: flex-end;
+          gap: 10px;
+          width: 250px;
+          margin-top: 20px;
+        }
+
+        #orderthroughwebsite-order {
+          width: 10px;
+          height: 10px;
+          background-color: #076d72;
+        }
+
+        #orderthroughwebsite-cancelOrder {
+          width: 10px;
+          height: 10px;
+          background-color: #ff7676;
+        }
+        #orderthroughwebsite-details span {
+          color: #079ba3;
+        }
+        .orderthroughwebsite-details-titles {
+          font-size: 10px;
+        }
+        #chartWithDetails {
+          display: flex;
+          /* gap: 100px; */
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        #chartWithDetails h5 {
+          font-size: 10px;
+        }
+
+        #orderthroughwebsite-table {
+          display: grid;
+          grid-template-columns: 0.5fr 0.5fr 0.5fr;
+          margin-bottom: -20px;
+        }
+        #orderthroughwebsite-table span {
+          color: #ff7676;
+        }
+
+        #orderthroughwebsite-userSource-organic {
+          width: 10px;
+          height: 10px;
+          background-color: #076d72;
+        }
+        #orderthroughwebsite-userSource-paid {
+          width: 10px;
+          height: 10px;
+          background-color: #11a8af;
+        }
+        #orderthroughwebsite-userSource-others {
+          width: 10px;
+          height: 10px;
+          background-color: #8dd5d9;
+        }
+        #orderThroughWebsite p {
+          font-size: 10px;
+        }
+
+        .userFromDiffrentSource-chart {
+          max-width: 200px;
+        }
+
+        #orderthroughwebsite-userSource-details {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          /* gap: 40px; */
+          margin-bottom: -40px;
+          margin-right: 10px;
+        }
+        #orderthroughwebsite-userSource-details h4 {
+          font-size: 15px;
+        }
+        #orderthroughwebsite-userSource-details h6 {
+          font-size: 12px;
+        }
+        #orderthroughwebsite-userSource-details p {
+          font-size: 8px;
+        }
+        #orderthroughwebsite-userSource-details-bottomTitle h4 {
+          font-size: 12px;
+          margin-right: 10px;
+        }
+        #orderthroughwebsite-userSource-details-bottomTitle span {
+          color: #076d72;
+        }
+
+        #websiteTrafficReport-container {
+          display: flex;
+          align-items: center;
+          /* gap: 50px; */
+          justify-content: space-between;
+          margin-right: 60px;
+        }
+        #websiteTrafficReport-card {
+          margin-top: 30px;
+          width: 150px;
+          /* height: 80px; */
+          border: 1px solid gray;
+          border-radius: 4px;
+          padding: 2px 10px;
+        }
+
+        #websiteTrafficReport-card p {
+          margin-top: 0px;
+          font-size: 10px;
+        }
+        #websiteTrafficReport-card h3 {
+          margin-top: -5px;
+          font-size: 13px;
+        }
+        #websiteTrafficReport-card_compared {
+          display: flex;
+          justify-content: flex-end;
+          margin-top: -30px;
+        }
+        /* #websiteTrafficReport-card_compared h4 {
+    font: 5px;
+  } */
+        #websiteTrafficReport-card_compared h6 {
+          margin-top: -20px;
+          font-size: 7px;
+        }
+
+        #topPageView-container {
+          margin-top: 30px;
+        }
+
+        #topPageView-chart {
+          padding: 0px 15px;
+          width: 90%;
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 0.8fr;
+        }
+        .topPageView-chart-title h5 {
+          font-size: 9px;
+        }
+
+        .topPageView-chart-title {
+          height: 35px;
+          margin-top: -10px;
+        }
+
+        .topPageView-chart-color {
+          margin-top: 30px;
+          background-color: #11a8af;
+          color: white;
+        }
+
+        .topPageView-chart-overall {
+          font-size: 10px;
+          font-weight: 100;
+          color: #3c3c3c;
+        }
+
+        #convesionFunnel-container {
+          margin-left: 115px;
+          height: 1000px;
+        }
+
+        .convesionFunnel-chartContainer {
+          margin-top: 20px;
+        }
+
+        #convesionFunnel-chart {
+          margin-right: 50px;
+          margin-top: 30px;
+          display: grid;
+          grid-template-columns: 0.5fr 0.6fr 0.3fr 2fr 0.4fr 0.5fr;
+        }
+        #convesionFunnel-chart h2 {
+          font-size: 13px;
+          margin-top: 18px;
+        }
+        #convesionFunnel-chart img {
+          height: 20px;
+          margin-top: 16px;
+        }
+
+        .convesionFunnel-left-arrow-logo {
+          margin-top: 15px;
+          width: 0;
+          height: 0;
+          border-top: 10px solid transparent;
+          border-bottom: 10px solid transparent;
+          border-left: 16px solid #23afb6;
+        }
+
+        .convesionFunnel-right-arrow-logo {
+          margin-top: 15px;
+          width: 0;
+          height: 0;
+          border-top: 10px solid transparent;
+          border-bottom: 10px solid transparent;
+          border-left: 16px solid #ff7676;
+        }
+
+        .arrow-left {
+          margin-top: 23px;
+        }
+
+        #convesionFunnel-chart-title {
+          display: flex;
+          align-items: center;
+          position: relative;
+        }
+        #convesionFunnel-chart-title h2 {
+          width: 250px;
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        #convesionFunnel-chart-titleContainer {
+          width: 250px;
+          height: 30px;
+          border: 1px solid lightgray;
+        }
+
+        #purchase-container {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          margin-top: 50px;
+        }
+
+        #purchase-box {
+          /* margin-left: -150px; */
+          width: 120px;
+          height: 60px;
+          border: 1px solid gray;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        #purchase-box p {
+          margin-top: 4px;
+          font-size: 13px;
+        }
+        #purchase-box h2 {
+          margin-top: -15px;
+          font-size: 16px;
+        }
+        #purchase-box h6 {
+          margin-top: -5px;
+          font-size: 8px;
+        }
+
+        #marketPlacePerformance {
+          margin-left: 115px;
+        }
+
+        #topkeyword-chart {
+          padding: 0px 15px;
+          width: 90%;
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr 0.8fr;
+        }
+        .salesOnAmazon-chart {
+          max-width: 150px;
+        }
+        #orderByAmazon {
+          margin-top: 840px;
+        }
+      }
+
+      @media only screen and (min-width: 1200px) {
+        .mainContainer {
+          overflow: hidden;
+        }
+
+        .page1_container {
+          /* width: 100%; */
+          color: white;
+          background-color: rgb(28, 110, 118);
+        }
+
+        .page1_container-content {
+          margin-left: 150px;
+        }
+
+        .page1_topTitle_webLink-container {
+          display: flex;
+          justify-content: flex-end;
+        }
+        .page1_topTitle_webLink {
+          rotate: 270deg;
+          margin-top: 300px;
+        }
+        .page1_topTitle_webLink a {
+          text-decoration: none;
+          color: white;
+          font-size: 25px;
+          cursor: pointer;
+        }
+        .page1_container_logo {
+          width: 200px;
+        }
+
+        .page1_middleTitle_seprator {
+          width: 500px;
+          height: 4px;
+          background-color: white;
+          margin-top: 50px;
+        }
+
+        .page1_middleTitle p {
+          margin-top: -10px;
+          font-size: 34px;
+          font-weight: 10;
+        }
+        .page1_middleTitle-monthly {
+          margin-top: 50px;
+          font-size: 120px;
+          font-weight: 400;
+        }
+        .page1_middleTitle-sale {
+          margin-top: -100px;
+          font-size: 80px;
+          font-weight: 900;
+        }
+        .page1_middleTitle-report {
+          font-size: 80px;
+          font-weight: 100;
+        }
+        .page1_middleTitle-month {
+          font-size: 34px;
+          font-weight: 700;
+        }
+
+        .page1_bottomTitle_container {
+          margin-top: 530px;
+          font-size: 25px;
+          font-weight: 900px;
+          display: flex;
+          justify-content: space-between;
+          margin-right: 50px;
+        }
+        .page1_bottomTitle_container img {
+          margin-top: -50px;
+          width: 150px;
+          height: 100px;
+        }
+
+        /* End page 1 or Intro page here */
+
+        /* started overall performance page from here !!! */
+
+        .overAllPerformancePage {
+          margin-left: 140px;
+        }
+
+        .pageup_logo {
+          display: flex;
+          justify-content: flex-end;
+        }
+
+        .pageup_left_logo-container {
+          width: 0;
+          height: 0;
+          border-left: 35px solid transparent;
+          border-right: 250px solid #076d72;
+          border-top: 35px solid #076d72;
+        }
+        .pageup_bottom_logo-container {
+          width: 0;
+          height: 0;
+          border-top: 150px solid #076d72;
+          border-bottom: 35px solid transparent;
+          border-right: 35px solid #076d72;
+        }
+
+        .overAllPerformancePage_page1-heading {
+          margin-top: -50px;
+          font-size: 30px;
+          font-weight: 900;
+          margin-bottom: 100px;
+        }
+        .overAllPerformancePage_page1-heading-underline {
+          width: 120px;
+          height: 2px;
+          background-color: rgb(28, 110, 118);
+          margin-top: -10px;
+        }
+
+        .overAllPerformancePage_page1-totalSales {
+          margin-top: 30px;
+          width: 700px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .overAllPerformancePage_page1-totalSales-title {
+          font-size: 20px;
+          font-weight: 900;
+          color: #2f4f4f;
+        }
+
+        .overAllPerformancePage_page1-saleComparisson {
+          /* margin-top: 30px; */
+          width: 800px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .overAllPerformancePage_page1-saleComparisson-title {
+          font-size: 18px;
+          font-weight: 700;
+        }
+
+        .overAllPerformancePage_page1-saleComparisson-months {
+          display: flex;
+          align-items: center;
+          gap: 80px;
+        }
+
+        .overAllPerformancePage_page1-saleComparisson-currentMonths {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+        }
+        .overAllPerformancePage_page1-saleComparisson-currentMonthsIcon {
+          width: 15px;
+          height: 15px;
+          background-color: #4ad9d9;
+          border-radius: 50%;
+        }
+        .overAllPerformancePage_page1-saleComparisson-MonthsTitle {
+          font-size: 18px;
+          font-weight: 600;
+          color: #2f4f4f;
+        }
+        .overAllPerformancePage_page1-saleComparisson-lastMonths {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+        }
+        .overAllPerformancePage_page1-saleComparisson-lastMonthsIcon {
+          width: 15px;
+          height: 15px;
+          background-color: #5a5a5a;
+          border-radius: 50%;
+        }
+
+        .overAllPerformancePage_page1-saleComparisson-chart-container {
+          margin-top: 30px;
+          width: 100%;
+          margin-left: 50px;
+          margin-bottom: 50px;
+        }
+        .overAllPerformancePage_page1-saleComparisson-chart {
+          width: 850px;
+          height: 350px;
+          /* border: 1px solid lightgray; */
+        }
+
+        .overAllPerformancePage_page1-salesByChannel-content {
+          margin-top: 30px;
+          width: 80%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .overAllPerformancePage_page1-salesByChannel-chart {
+          margin-left: 50px;
+          width: 500px;
+          height: 250px;
+          /* border: 1px solid lightgray; */
+        }
+
+        .overAllPerformancePage_page1-salesByChannel-details {
+          height: 250px;
+        }
+        .overAllPerformancePage_page1-salesByChannel-details-container {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+
+        .overallPerformance_arrow_up {
+          width: 0;
+          height: 0;
+          border-left: 20px solid transparent;
+          border-right: 20px solid transparent;
+          border-bottom: 20px solid #076d72;
+        }
+
+        .overallPerformance_arrow_up_2 {
+          margin-top: 20px;
+          width: 0;
+          height: 0;
+          border-left: 20px solid transparent;
+          border-right: 20px solid transparent;
+          border-bottom: 20px solid #079ba3;
+        }
+
+        .overAllPerformancePage_page1-salesByChannel-details-container h2 {
+          color: #079ba3;
+        }
+        .overAllPerformancePage_page1-salesByChannel-details-container p {
+          width: 200px;
+          margin-top: 50px;
+        }
+
+        #salesbychannelDetails {
+          margin-top: -50px;
+        }
+
+        .overAllPerformancePage_page1-tableContainer {
+          margin-top: 80px;
+        }
+        .overAllPerformancePage_page1-table {
+          padding: 1px 20px;
+          width: 100%;
+          display: grid;
+          grid-template-columns: 1fr 1fr 0fr;
+          border-bottom: 1px solid lightgray;
+        }
+        .overAllPerformancePage_page1-table p {
+          font-size: 15px;
+          font-weight: 600;
+          color: #373737;
+        }
+
+        .currnet_pageEnd {
+          margin-top: 50px;
+          display: flex;
+          justify-content: flex-end;
+          position: relative;
+        }
+        .pagedown_logo-container {
+          width: 0;
+          height: 0;
+          border-left: 35px solid transparent;
+          border-right: 250px solid #076d72;
+          border-bottom: 35px solid #076d72;
+        }
+        .currnet_pageEnd-number {
+          position: absolute;
+          width: 300px;
+          display: flex;
+          justify-content: center;
+          margin-top: 5px;
+          color: white;
+        }
+
+        /* Ended here page 1 of overAllPerformancePage */
+
+        .overAllPerformancePage_page2_locationCantiner {
+          /* margin-top: -50px; */
+          /* width: 100%; */
+          display: flex;
+          align-items: center;
+          /* gap: 100px; */
+        }
+
+        .overallperformancepage_location_logo {
+          width: 0;
+          height: 0;
+          border-left: 70px solid transparent;
+          border-right: 70px solid transparent;
+          border-top: 70px solid #23afb6;
+        }
+
+        .overAllPerformancePage_page2-tableContainer {
+          width: 700px;
+        }
+
+        .overAllPerformancePage_page2-table {
+          padding: 1px 20px;
+          display: grid;
+          grid-template-columns: 1fr 1fr 0fr;
+          border-bottom: 1px solid lightgray;
+        }
+        .overAllPerformancePage_page2-table p {
+          font-size: 15px;
+          font-weight: 600;
+          color: #373737;
+        }
+
+        .overAllPerformancePage_page2_locationDetails-content p {
+          width: 200px;
+          margin-top: 0px;
+          color: #000000;
+        }
+
+        .overAllPerformancePage_page2_locationDetails {
+          display: flex;
+          align-items: center;
+          margin-left: 10px;
+        }
+        .overAllPerformancePage_page2_locationDetails h2 {
+          margin-left: -80px;
+          margin-top: 0px;
+          color: white;
+        }
+
+        .overAllPerformancePage_page2-marketing {
+          margin-top: 80px;
+        }
+
+        .overAllPerformancePage_page2-marketing h4 {
+          margin-top: 50px;
+        }
+
+        .overAllPerformancePage_page2-marketing-chartFilter {
+          width: 40%;
+          display: flex;
+          justify-content: flex-end;
+          gap: 20px;
+          align-items: center;
+        }
+        .overAllPerformancePage_page2-marketing-chartFilterContainer {
+          display: flex;
+          align-items: center;
+          gap: 2px;
+        }
+        .overAllPerformancePage_page2-marketing-salesIcon {
+          width: 15px;
+          height: 15px;
+          background-color: #076d72;
+        }
+        .overAllPerformancePage_page2-marketing-marketingIcon {
+          width: 15px;
+          height: 15px;
+          background-color: #079ba3;
+        }
+
+        .overAllPerformancePage_page2-marketing-chartWithDeatils {
+          display: flex;
+          gap: 50px;
+        }
+
+        .overAllPerformancePage_page2-marketing-chart {
+          width: 40%;
+          height: 250px;
+          /* border: 1px solid lightgray; */
+        }
+        .Dounaut-chart {
+          width: 250px;
+        }
+        .overAllPerformancePage_page2-marketing-details {
+          width: 40%;
+          display: flex;
+          align-items: flex-end;
+        }
+        .overAllPerformancePage_page2-marketing-details span {
+          color: #079ba3;
+        }
+        .overAllPerformancePage_page2-marketing-details h5 {
+          width: 300px;
+        }
+
+        .overAllPerformancePage_page2-investment {
+          margin-top: 50px;
+        }
+
+        .overAllPerformancePage_page2-investment-chartCantainer {
+          display: flex;
+          align-items: center;
+          gap: 100px;
+        }
+        .overAllPerformancePage_page2-investment-chartCantainer-header {
+          display: flex;
+          width: 500px;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .overAllPerformancePage_page2-investment-chartFilter {
+          display: flex;
+          align-items: center;
+          gap: 30px;
+        }
+        .overAllPerformancePage_page2-investment-chartFilterContainer {
+          display: flex;
+          align-items: center;
+          gap: 2px;
+        }
+        .overAllPerformancePage_page2-investment-returnIcon {
+          width: 15px;
+          height: 15px;
+          background-color: #076d72;
+        }
+        .overAllPerformancePage_page2-investment-investmentIcon {
+          width: 15px;
+          height: 15px;
+          background-color: #079ba3;
+        }
+        .overAllPerformancePage_page2-investment-chart {
+          width: 100%;
+          height: 250px;
+          margin-top: 30px;
+          margin-left: 30px;
+          /* border: 1px solid lightgray; */
+        }
+        .overAllPerformancePage_page2-investment-details {
+          width: 40%;
+        }
+
+        .overAllPerformancePage_page2-investment-table {
+          margin-bottom: -20px;
+          display: grid;
+          grid-template-columns: 0.3fr 1fr 1fr 0fr;
+        }
+        .overAllPerformancePage_page2-investment-table div {
+          width: 30px;
+          height: 5px;
+          border-radius: 30px;
+          background-color: #079ba3;
+          margin-top: 27px;
+        }
+
+        .overAllPerformancePage_page2-investment-details span {
+          color: #079ba3;
+        }
+
+        #websitePerformance {
+          margin-left: 140px;
+        }
+
+        #saleThroughWebsiteReport-chartContainer {
+          display: flex;
+          gap: 100px;
+          align-items: center;
+        }
+        #saleThroughWebsiteReport-details {
+          width: 200px;
+        }
+        #saleThroughWebsiteReport-details img {
+          width: 80px;
+        }
+        #saleThroughWebsiteReport-details h4 {
+          margin-top: -10px;
+        }
+        #saleThroughWebsiteReport-details span {
+          color: #076d72;
+        }
+
+        #website-container {
+          margin-top: 80px;
+        }
+
+        .orderThroughWebsiteReport-Title {
+          margin-top: 150px;
+        }
+
+        #orderThroughWebsite {
+          display: flex;
+          justify-content: flex-end;
+          gap: 50px;
+          width: 550px;
+          margin-top: 30px;
+        }
+
+        #orderthroughwebsite-order {
+          width: 15px;
+          height: 15px;
+          background-color: #076d72;
+        }
+
+        #orderthroughwebsite-cancelOrder {
+          width: 15px;
+          height: 15px;
+          background-color: #ff7676;
+        }
+        #orderthroughwebsite-details span {
+          color: #079ba3;
+        }
+
+        #chartWithDetails {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-right: 100px;
+        }
+
+        #orderthroughwebsite-table {
+          display: grid;
+          grid-template-columns: 0.5fr 0.5fr 0.5fr;
+          margin-bottom: -20px;
+        }
+        #orderthroughwebsite-table span {
+          color: #ff7676;
+        }
+
+        #orderthroughwebsite-userSource-organic {
+          width: 15px;
+          height: 15px;
+          background-color: #076d72;
+        }
+        #orderthroughwebsite-userSource-paid {
+          width: 15px;
+          height: 15px;
+          background-color: #11a8af;
+        }
+        #orderthroughwebsite-userSource-others {
+          width: 15px;
+          height: 15px;
+          background-color: #8dd5d9;
+        }
+
+        #orderthroughwebsite-userSource-details {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 40px;
+          margin-bottom: -40px;
+        }
+        #orderthroughwebsite-userSource-details-bottomTitle span {
+          color: #076d72;
+        }
+
+        #websiteTrafficReport-container {
+          display: flex;
+          align-items: center;
+          gap: 50px;
+        }
+        #websiteTrafficReport-card {
+          margin-top: 50px;
+          width: 200px;
+          height: 80px;
+          border: 1px solid gray;
+          border-radius: 4px;
+          padding: 2px 10px;
+        }
+
+        #websiteTrafficReport-card p {
+          margin-top: 0px;
+        }
+        #websiteTrafficReport-card h3 {
+          margin-top: -5px;
+        }
+        #websiteTrafficReport-card_compared {
+          display: flex;
+          justify-content: flex-end;
+          margin-top: -50px;
+        }
+        #websiteTrafficReport-card_compared h6 {
+          margin-top: -20px;
+        }
+
+        #topPageView-container {
+          margin-top: 60px;
+        }
+
+        #topPageView-chart {
+          padding: 0px 15px;
+          width: 90%;
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 0.5fr;
+        }
+        .topPageView-chart-title h5 {
+          margin-top: 7px;
+        }
+
+        .topPageView-chart-title {
+          height: 35px;
+        }
+
+        .topPageView-chart-color {
+          margin-top: 30px;
+          background-color: #11a8af;
+          color: white;
+        }
+
+        .topPageView-chart-overall {
+          font-size: 13px;
+          font-weight: 100;
+          color: #3c3c3c;
+        }
+
+        #topkeyword-chart {
+          padding: 0px 15px;
+          width: 90%;
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr 0.5fr;
+        }
+
+        #convesionFunnel-container {
+          margin-left: 140px;
+          height: 1400px;
+        }
+
+        .convesionFunnel-chartContainer {
+          margin-top: 80px;
+        }
+
+        .convesionFunnel-left-arrow-logo {
+          margin-top: 25px;
+          width: 0;
+          height: 0;
+          border-top: 12px solid transparent;
+          border-bottom: 12px solid transparent;
+          border-left: 18px solid #23afb6;
+        }
+
+        .convesionFunnel-right-arrow-logo {
+          margin-top: 25px;
+          width: 0;
+          height: 0;
+          border-top: 12px solid transparent;
+          border-bottom: 12px solid transparent;
+          border-left: 18px solid #ff7676;
+        }
+
+        #convesionFunnel-chart {
+          margin-top: 30px;
+          display: grid;
+          grid-template-columns: 0.3fr 0.6fr 0.8fr 3.5fr 0.6fr 1fr;
+        }
+        #convesionFunnel-chart img {
+          height: 22px;
+          margin-top: 23px;
+        }
+
+        .arrow-left {
+          margin-top: 23px;
+        }
+
+        #convesionFunnel-chart-title {
+          display: flex;
+          align-items: center;
+          position: relative;
+        }
+        #convesionFunnel-chart-title h2 {
+          width: 500px;
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        #convesionFunnel-chart-titleContainer {
+          width: 500px;
+          height: 50px;
+          border: 1px solid lightgray;
+        }
+
+        #purchase-container {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          margin-top: 50px;
+        }
+
+        #purchase-box {
+          margin-left: -150px;
+          width: 200px;
+          height: 100px;
+          border: 1px solid gray;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        #purchase-box h2 {
+          margin-top: -15px;
+        }
+        #purchase-box h6 {
+          margin-top: -5px;
+        }
+
+        #marketPlacePerformance {
+          margin-left: 140px;
+        }
+
+        .costBreakDown-title {
+          margin-top: 150px;
+        }
+
+        #orderByAmazon {
+          margin-top: 840px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!--      started body seaction from here ####       -->
+
+    <div class="mainContainer">
+      <!--         starting page 1 from here !!!!!         -->
+
+      <div class="page1_container">
+        <div class="page1_container-content">
+          <div class="page1_topTitle_webLink-container">
+            <div class="page1_topTitle_webLink">
+              <a href="https://wesolveforyou.com/"
+                >https://wesolveforyou.com/</a
+              >
+            </div>
+          </div>
+          <img
+            src="https://wesolveforyou.com/media/logo_img1.90ae5bab.png"
+            alt="forest_logo"
+            class="page1_container_logo"
+          />
+          <div class="page1_middleTitle_seprator"></div>
+          <div class="page1_middleTitle">
+            <h1 class="page1_middleTitle-monthly">MONTHLY</h1>
+            <h1 class="page1_middleTitle-sale">
+              SALES <span class="page1_middleTitle-report">REPORT</span>
+            </h1>
+            <p>
+              Months of
+              <span class="page1_middleTitle-month"> August-2022</span>
+            </p>
+          </div>
+          <div class="page1_bottomTitle_container">
+            <p>POWERED BY - WESOLVEFORYOU</p>
+            <img
+              src="https://e7.pngegg.com/pngimages/62/748/png-clipart-finance-market-ubs-capital-market-market-angle-text.png"
+              alt=""
+            />
+            <!-- <img src="./graph.svg" alt="graph" />   -->
+          </div>
+        </div>
+      </div>
+
+      <!-- End page 1 or Intro page here  -->
+
+      <!--         started overall performance page from here !!!      -->
+
+      <div class="overAllPerformancePage">
+        <div>
+          <div class="pageup_logo">
+            <!-- <img src="./Vector_1.svg" alt="logo"  /> -->
+            <div>
+              <div class="pageup_left_logo-container"></div>
+              <div
+                style="width: 100%; display: flex; justify-content: flex-end"
+              >
+                <div class="pageup_bottom_logo-container"></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h1 class="overAllPerformancePage_page1-heading">
+              OVERALL PERFORMANCE
+            </h1>
+
+            <!-- in overall performance sale report started here  -->
+
+            <h2 class="overAllPerformancePage_page1-subtitle">SALES REPORT</h2>
+            <div class="overAllPerformancePage_page1-heading-underline"></div>
+            <div class="overAllPerformancePage_page1-totalSales">
+              <h4 class="overAllPerformancePage_page1-totalSales-title">
+                Total sales in months-
+              </h4>
+              <h2>₹4,82,856</h2>
+              <div>
+                <p>compared to last month</p>
+              </div>
+            </div>
+            <div class="overAllPerformancePage_page1-saleComparisson">
+              <h4 class="overAllPerformancePage_page1-saleComparisson-title">
+                SALES COMPARSSION
+              </h4>
+              <div class="overAllPerformancePage_page1-saleComparisson-months">
+                <div
+                  class="overAllPerformancePage_page1-saleComparisson-currentMonths"
+                >
+                  <div
+                    class="overAllPerformancePage_page1-saleComparisson-currentMonthsIcon"
+                  ></div>
+                  <h4
+                    class="overAllPerformancePage_page1-saleComparisson-MonthsTitle"
+                  >
+                    This month
+                  </h4>
+                </div>
+                <div
+                  class="overAllPerformancePage_page1-saleComparisson-lastMonths"
+                >
+                  <div
+                    class="overAllPerformancePage_page1-saleComparisson-lastMonthsIcon"
+                  ></div>
+                  <h4
+                    class="overAllPerformancePage_page1-saleComparisson-MonthsTitle"
+                  >
+                    Last month
+                  </h4>
+                </div>
+              </div>
+            </div>
+            <div
+              class="overAllPerformancePage_page1-saleComparisson-chart-container"
+            >
+              <div class="overAllPerformancePage_page1-saleComparisson-chart">
+                <!--  -->
+                <!--  -->
+                <canvas
+                  id="salesComparission"
+                  class="overAll_salesComparission_Chart"
+                ></canvas>
+                <!--  -->
+                <!--  -->
+              </div>
+            </div>
+            <div>
+              <h2 class="overAllPerformancePage_page1-saleComparisson-title">
+                SALES BY CHANNEL
+              </h2>
+              <div class="overAllPerformancePage_page1-salesByChannel-content">
+                <div class="overAllPerformancePage_page1-salesByChannel-chart">
+                  <!--  -->
+                  <!--  -->
+                  <canvas id="salesByChannel"></canvas>
+                  <!--  -->
+                  <!--  -->
+                </div>
+                <div
+                  class="overAllPerformancePage_page1-salesByChannel-details"
+                >
+                  <div
+                    class="overAllPerformancePage_page1-salesByChannel-details-container"
+                  >
+                    <!-- <img src="./Vector.svg" alt="vector" width="40px" /> -->
+                    <div class="overallPerformance_arrow_up"></div>
+                    <h2>₹82,856</h2>
+                  </div>
+                  <div
+                    id="salesbychannelDetails"
+                    class="overAllPerformancePage_page1-salesByChannel-details-container"
+                  >
+                    <!-- <img src="./VectorSecond.svg" alt="vector" width="40px" /> -->
+                    <div class="overallPerformance_arrow_up_2"></div>
+                    <p>
+                      amazon is the best performing channel for this month with
+                      growth of 2% from last month
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="overAllPerformancePage_page1-tableContainer">
+              <h2 class="overAllPerformancePage_page1-saleComparisson-title">
+                TOP SOLD PRODUCTS
+              </h2>
+              <div class="overAllPerformancePage_page1-table">
+                <h4></h4>
+                <h4>UNITS SOLD</h4>
+                <h4>AMOUNT</h4>
+              </div>
+              <div class="overAllPerformancePage_page1-table">
+                <p>Product 1</p>
+                <p>254</p>
+                <p>₹5482</p>
+              </div>
+              <div class="overAllPerformancePage_page1-table">
+                <p>Product 2</p>
+                <p>254</p>
+                <p>₹5482</p>
+              </div>
+              <div class="overAllPerformancePage_page1-table">
+                <p>Product 3</p>
+                <p>254</p>
+                <p>₹5482</p>
+              </div>
+              <div class="overAllPerformancePage_page1-table">
+                <p>Product 4</p>
+                <p>254</p>
+                <p>₹5482</p>
+              </div>
+              <div class="overAllPerformancePage_page1-table">
+                <p>Product 5</p>
+                <p>254</p>
+                <p>₹5482</p>
+              </div>
+            </div>
+            <div class="currnet_pageEnd">
+              <!-- <img src="./Vector_2.svg" alt="" /> -->
+              <div class="pagedown_logo-container"></div>
+              <p class="currnet_pageEnd-number">Page 1 of</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ended here page 1 of overAllPerformancePage -->
+
+        <div>
+          <div class="pageup_logo">
+            <!-- <img src="./Vector_1.svg" alt="logo"= /> -->
+            <div>
+              <div class="pageup_left_logo-container"></div>
+              <div
+                style="width: 100%; display: flex; justify-content: flex-end"
+              >
+                <div class="pageup_bottom_logo-container"></div>
+              </div>
+            </div>
+          </div>
+          <div class="overAllPerformancePage_page2_locationCantiner">
+            <div>
+              <div class="overAllPerformancePage_page2-tableContainer">
+                <h2 class="overAllPerformancePage_page1-saleComparisson-title">
+                  TOP LOCATION
+                </h2>
+                <div class="overAllPerformancePage_page2-table">
+                  <h4></h4>
+                  <h4>UNITS SOLD</h4>
+                  <h4>AMOUNT</h4>
+                </div>
+                <div class="overAllPerformancePage_page2-table">
+                  <p>Mumbai</p>
+                  <p>254</p>
+                  <p>₹5482</p>
+                </div>
+                <div class="overAllPerformancePage_page2-table">
+                  <p>Location</p>
+                  <p>254</p>
+                  <p>₹5482</p>
+                </div>
+                <div class="overAllPerformancePage_page2-table">
+                  <p>Location</p>
+                  <p>254</p>
+                  <p>₹5482</p>
+                </div>
+                <div class="overAllPerformancePage_page2-table">
+                  <p>Location</p>
+                  <p>254</p>
+                  <p>₹5482</p>
+                </div>
+                <div class="overAllPerformancePage_page2-table">
+                  <p>Location</p>
+                  <p>254</p>
+                  <p>₹5482</p>
+                </div>
+              </div>
+            </div>
+            <div class="overAllPerformancePage_page2_locationDetails-content">
+              <div class="overAllPerformancePage_page2_locationDetails">
+                <!-- <img src="./locationVector.svg" alt="" /> -->
+                <div class="overallperformancepage_location_logo"></div>
+                <h2>48%</h2>
+              </div>
+              <p>
+                Mumbai alone holds 48% of the total sales ,arround ₹5874 sales
+                happend there this month
+              </p>
+            </div>
+          </div>
+
+          <!-- Ended sales report here  -->
+
+          <!--     started marketing report from  here     -->
+
+          <div class="overAllPerformancePage_page2-marketing">
+            <h2 class="overAllPerformancePage_page1-saleComparisson-title">
+              MARKETING REPORT
+            </h2>
+            <div class="overAllPerformancePage_page1-heading-underline"></div>
+            <h4 class="overAllPerformancePage_page1-saleComparisson-title">
+              MARKETING SPENT VS SALES
+            </h4>
+            <div class="overAllPerformancePage_page2-marketing-chartFilter">
+              <div
+                class="overAllPerformancePage_page2-marketing-chartFilterContainer"
+              >
+                <div
+                  class="overAllPerformancePage_page2-marketing-salesIcon"
+                ></div>
+                <p>SALES</p>
+              </div>
+              <div
+                class="overAllPerformancePage_page2-marketing-chartFilterContainer"
+              >
+                <div
+                  class="overAllPerformancePage_page2-marketing-marketingIcon"
+                ></div>
+                <p>MARKETING SPENT</p>
+              </div>
+            </div>
+            <div
+              class="overAllPerformancePage_page2-marketing-chartWithDeatils"
+            >
+              <div class="overAllPerformancePage_page2-marketing-chart">
+                <!--  -->
+                <!--  -->
+                <canvas id="marketingSpent"></canvas>
+                <!--  -->
+                <!--  -->
+              </div>
+              <div class="overAllPerformancePage_page2-marketing-details">
+                <h5>
+                  Total marketing investement
+                  <span>this month was ₹54,828 ie 14% more</span> than last
+                  month also sales this month is <span>2% more </span>than last
+                  month
+                </h5>
+              </div>
+            </div>
+
+            <h4 class="overAllPerformancePage_page1-saleComparisson-title">
+              RETURN ON INVESTEMENT
+            </h4>
+
+            <!-- Return on investment seaction 1  -->
+
+            <div class="overAllPerformancePage_page2-investment">
+              <div
+                class="overAllPerformancePage_page2-investment-chartCantainer"
+              >
+                <div>
+                  <div
+                    class="overAllPerformancePage_page2-investment-chartCantainer-header"
+                  >
+                    <h5>Last month report</h5>
+                    <div
+                      class="overAllPerformancePage_page2-investment-chartFilter"
+                    >
+                      <div
+                        class="overAllPerformancePage_page2-investment-chartFilterContainer"
+                      >
+                        <div
+                          class="overAllPerformancePage_page2-investment-returnIcon"
+                        ></div>
+                        <p>RETURN</p>
+                      </div>
+                      <div
+                        class="overAllPerformancePage_page2-investment-chartFilterContainer"
+                      >
+                        <div
+                          class="overAllPerformancePage_page2-investment-investmentIcon"
+                        ></div>
+                        <p>INVESTEMENT</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="overAllPerformancePage_page2-investment-chart">
+                    <!--  -->
+                    <!--  -->
+                    <div class="Dounaut-chart">
+                      <canvas id="returnOfInvestmentOfLastMonth"></canvas>
+                    </div>
+                    <!--  -->
+                    <!--  -->
+                  </div>
+                </div>
+                <div class="overAllPerformancePage_page2-investment-details">
+                  <h5>Last month return was 68% .Major investment were on</h5>
+                  <div class="overAllPerformancePage_page2-investment-table">
+                    <h5></h5>
+                    <h5>Campaign Name</h5>
+                    <h5>Investement</h5>
+                    <h5>ROI</h5>
+                  </div>
+                  <div class="overAllPerformancePage_page2-investment-table">
+                    <div></div>
+                    <h5>Indian Food</h5>
+                    <h5>₹5800</h5>
+                    <h5>28%</h5>
+                  </div>
+                  <div class="overAllPerformancePage_page2-investment-table">
+                    <div></div>
+                    <h5>Food</h5>
+                    <h5>₹5800</h5>
+                    <h5>28%</h5>
+                  </div>
+                  <div class="overAllPerformancePage_page2-investment-table">
+                    <div></div>
+                    <h5>Indian Food</h5>
+                    <h5>₹5800</h5>
+                    <h5>28%</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Return on investment seaction 2  -->
+
+            <div class="overAllPerformancePage_page2-investment">
+              <div
+                class="overAllPerformancePage_page2-investment-chartCantainer"
+              >
+                <div>
+                  <div
+                    class="overAllPerformancePage_page2-investment-chartCantainer-header"
+                  >
+                    <h5>This month report</h5>
+                    <div
+                      class="overAllPerformancePage_page2-investment-chartFilter"
+                    >
+                      <div
+                        class="overAllPerformancePage_page2-investment-chartFilterContainer"
+                      >
+                        <div
+                          class="overAllPerformancePage_page2-investment-returnIcon"
+                        ></div>
+                        <p>RETURN</p>
+                      </div>
+                      <div
+                        class="overAllPerformancePage_page2-investment-chartFilterContainer"
+                      >
+                        <div
+                          class="overAllPerformancePage_page2-investment-investmentIcon"
+                        ></div>
+                        <p>INVESTEMENT</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="overAllPerformancePage_page2-investment-chart">
+                    <!--  -->
+                    <!--  -->
+                    <div class="Dounaut-chart">
+                      <canvas id="returnOfInvestmentOfThisMonth"></canvas>
+                    </div>
+                    <!--  -->
+                    <!--  -->
+                  </div>
+                </div>
+                <div class="overAllPerformancePage_page2-investment-details">
+                  <h5>
+                    This month return was <span>72%</span> .Major investment
+                    were on
+                  </h5>
+                  <div class="overAllPerformancePage_page2-investment-table">
+                    <h5></h5>
+                    <h5>Campaign Name</h5>
+                    <h5>Investement</h5>
+                    <h5>ROI</h5>
+                  </div>
+                  <div class="overAllPerformancePage_page2-investment-table">
+                    <div></div>
+                    <h5>Indian Food</h5>
+                    <h5>₹5800</h5>
+                    <h5>28%</h5>
+                  </div>
+                  <div class="overAllPerformancePage_page2-investment-table">
+                    <div></div>
+                    <h5>Food</h5>
+                    <h5>₹5800</h5>
+                    <h5>28%</h5>
+                  </div>
+                  <div class="overAllPerformancePage_page2-investment-table">
+                    <div></div>
+                    <h5>Indian Food</h5>
+                    <h5>₹5800</h5>
+                    <h5>28%</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="currnet_pageEnd">
+              <!-- <img src="./Vector_2.svg" alt="" /> -->
+              <div class="pagedown_logo-container"></div>
+
+              <p class="currnet_pageEnd-number">Page 2 of</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--      Ended overAllPerformancePage 2 and also overAllPerformance here !!!    -->
+
+      <!-- started website performance from here !!! -->
+
+      <div id="websitePerformance">
+        <div>
+          <div class="pageup_logo">
+            <!-- <img src="./Vector_1.svg" alt="logo" /> -->
+            <div>
+              <div class="pageup_left_logo-container"></div>
+              <div
+                style="width: 100%; display: flex; justify-content: flex-end"
+              >
+                <div class="pageup_bottom_logo-container"></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h1 class="overAllPerformancePage_page1-heading">
+              WEBSITE PERFORMANCE
+            </h1>
+            <h2 class="overAllPerformancePage_page1-saleComparisson-title">
+              SALES THROUGH WEBSITE REPORT
+            </h2>
+            <div class="overAllPerformancePage_page1-heading-underline"></div>
+            <div class="overAllPerformancePage_page1-totalSales">
+              <h4 class="overAllPerformancePage_page1-totalSales-title">
+                Total sales in months-
+              </h4>
+              <h2 class="overAllPerformancePage_page1-totalSales-amount">
+                ₹4,82,856
+              </h2>
+              <div class="overAllPerformancePage_page1-totalSales-compare">
+                <p>compared to last month</p>
+              </div>
+            </div>
+            <div class="overAllPerformancePage_page1-saleComparisson">
+              <h4 class="overAllPerformancePage_page1-saleComparisson-title">
+                SALES COMPARSSION
+              </h4>
+              <div class="overAllPerformancePage_page1-saleComparisson-months">
+                <div
+                  class="overAllPerformancePage_page1-saleComparisson-currentMonths"
+                >
+                  <div
+                    class="overAllPerformancePage_page1-saleComparisson-currentMonthsIcon"
+                  ></div>
+                  <h4
+                    class="overAllPerformancePage_page1-saleComparisson-currentMonthsTitle"
+                  >
+                    This month
+                  </h4>
+                </div>
+                <div
+                  class="overAllPerformancePage_page1-saleComparisson-lastMonths"
+                >
+                  <div
+                    class="overAllPerformancePage_page1-saleComparisson-lastMonthsIcon"
+                  ></div>
+                  <h4
+                    class="overAllPerformancePage_page1-saleComparisson-lastMonthsTitle"
+                  >
+                    Last month
+                  </h4>
+                </div>
+              </div>
+            </div>
+            <div id="saleThroughWebsiteReport-chartContainer">
+              <div class="overAllPerformancePage_page1-saleComparisson-chart">
+                <!--  -->
+                <!--  -->
+                <canvas
+                  id="salesComparissionWebsite"
+                  class="salethroughWebsiteReport-chart"
+                ></canvas>
+                <!--  -->
+                <!--  -->
+              </div>
+              <div id="saleThroughWebsiteReport-details">
+                <!-- <img src="./websitePerforemance.svg" alt="" /> -->
+                <img
+                  src="https://img.favpng.com/2/15/2/computer-icons-vector-graphics-illustration-the-noun-project-iconfinder-png-favpng-LD2bbxWXBsZP60NsW4EeT69Tb.jpg"
+                  alt=""
+                />
+                <h4>
+                  Total sales through website this month only is of
+                  <span>82,856</span> which is
+                  <span>28% of the total sales</span>
+                </h4>
+              </div>
+            </div>
+            <div id="website-container">
+              <h2
+                class="overAllPerformancePage_page1-saleComparisson-title orderThroughWebsiteReport-Title"
+              >
+                ORDER THRUOGH WEBSITE REPORT
+              </h2>
+              <div class="overAllPerformancePage_page1-heading-underline"></div>
+              <div id="orderThroughWebsite">
+                <div
+                  class="overAllPerformancePage_page2-investment-chartFilterContainer"
+                >
+                  <div id="orderthroughwebsite-order"></div>
+                  <p class="orderthroughwebsite-details-titles">ORDER</p>
+                </div>
+                <div
+                  class="overAllPerformancePage_page2-investment-chartFilterContainer"
+                >
+                  <div id="orderthroughwebsite-cancelOrder"></div>
+                  <p class="orderthroughwebsite-details-titles">
+                    CANCELLED ORDER
+                  </p>
+                </div>
+              </div>
+              <div id="chartWithDetails">
+                <div class="overAllPerformancePage_page1-salesByChannel-chart">
+                  <!--  -->
+                  <!--  -->
+                  <canvas id="orderThroughWebsiteReport"></canvas>
+                  <!--  -->
+                  <!--  -->
+                </div>
+                <div
+                  class="overAllPerformancePage_page1-salesByChannel-details"
+                >
+                  <div id="orderthroughwebsite-details">
+                    <h5>
+                      This month orders from website was <span>72% .</span> more
+                      then last month
+                    </h5>
+                    <div id="orderthroughwebsite-table">
+                      <h5></h5>
+                      <h5>Total orders</h5>
+                      <h5>Returned ordes</h5>
+                    </div>
+                    <div id="orderthroughwebsite-table">
+                      <h5>This month</h5>
+                      <h5>250</h5>
+                      <h5><span>50</span></h5>
+                    </div>
+                    <div id="orderthroughwebsite-table">
+                      <h5>Last month</h5>
+                      <h5>250</h5>
+                      <h5><span>50</span></h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="website-container">
+              <h2 class="overAllPerformancePage_page1-saleComparisson-title">
+                USER FROM DIFFRENT SOURCES
+              </h2>
+              <div class="overAllPerformancePage_page1-heading-underline"></div>
+              <div id="orderThroughWebsite">
+                <div
+                  class="overAllPerformancePage_page2-investment-chartFilterContainer"
+                >
+                  <div id="orderthroughwebsite-userSource-organic"></div>
+                  <p>ORGANIC</p>
+                </div>
+                <div
+                  class="overAllPerformancePage_page2-investment-chartFilterContainer"
+                >
+                  <div id="orderthroughwebsite-userSource-paid"></div>
+                  <p>PAID</p>
+                </div>
+                <div
+                  class="overAllPerformancePage_page2-investment-chartFilterContainer"
+                >
+                  <div id="orderthroughwebsite-userSource-others"></div>
+                  <p>OTHERS</p>
+                </div>
+              </div>
+              <div id="chartWithDetails">
+                <div class="overAllPerformancePage_page1-salesByChannel-chart">
+                  <!--  -->
+                  <!--  -->
+                  <div class="userFromDiffrentSource-chart">
+                    <div class="Dounaut-chart">
+                      <canvas id="userFromDiffrentSource"></canvas>
+                    </div>
+                  </div>
+                  <!--  -->
+                  <!--  -->
+                </div>
+                <div
+                  class="overAllPerformancePage_page1-salesByChannel-details"
+                >
+                  <div id="orderthroughwebsite-userSource-details">
+                    <h6 class="overAllPerformancePage_page1-totalSales-title">
+                      Total sales in months :
+                    </h6>
+                    <h4 class="overAllPerformancePage_page1-totalSales-amount">
+                      856
+                    </h4>
+                    <div
+                      class="overAllPerformancePage_page1-totalSales-compare"
+                    >
+                      <p>compared to last month</p>
+                    </div>
+                  </div>
+                  <div id="orderthroughwebsite-userSource-details-bottomTitle">
+                    <h4>
+                      Most of the users were from <span>organic search</span>
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="currnet_pageEnd">
+              <!-- <img src="./Vector_2.svg" alt="" /> -->
+              <div class="pagedown_logo-container"></div>
+
+              <p class="currnet_pageEnd-number">Page 1 of</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ended page 1 of website performance here  -->
+
+        <div>
+          <div class="pageup_logo">
+            <!-- <img src="./Vector_1.svg" alt="logo" /> -->
+            <div>
+              <div class="pageup_left_logo-container"></div>
+              <div
+                style="width: 100%; display: flex; justify-content: flex-end"
+              >
+                <div class="pageup_bottom_logo-container"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- started website traffic report here -->
+
+          <h2 class="overAllPerformancePage_page1-saleComparisson-title">
+            WEBSITE TRAFFIC REPORT
+          </h2>
+          <div class="overAllPerformancePage_page1-heading-underline"></div>
+          <div id="websiteTrafficReport-container">
+            <div id="websiteTrafficReport-card">
+              <p>Total vistors</p>
+              <h3>82,865</h3>
+              <div id="websiteTrafficReport-card_compared">
+                <div>
+                  <h4>+3.4%</h4>
+                  <h6>Compared to last month</h6>
+                </div>
+              </div>
+            </div>
+            <div id="websiteTrafficReport-card">
+              <p>Bounce rate</p>
+              <h3>82,865</h3>
+              <div id="websiteTrafficReport-card_compared">
+                <div>
+                  <h4>-3.4%</h4>
+                  <h6>Compared to last month</h6>
+                </div>
+              </div>
+            </div>
+            <div id="websiteTrafficReport-card">
+              <p>Clicks</p>
+              <h3>82,865</h3>
+              <div id="websiteTrafficReport-card_compared">
+                <div>
+                  <h4>3.4%</h4>
+                  <h6>Compared to last month</h6>
+                </div>
+              </div>
+            </div>
+            <div id="websiteTrafficReport-card">
+              <p>Impression</p>
+              <h3>82,865</h3>
+              <div id="websiteTrafficReport-card_compared">
+                <div>
+                  <h4>3.4%</h4>
+                  <h6>Compared to last month</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ended website traffic report here -->
+
+          <!--      started top page views from  here       -->
+
+          <div id="topPageView-container">
+            <h2 class="overAllPerformancePage_page1-saleComparisson-title">
+              TOP PAGE VIEWS
+            </h2>
+            <div class="overAllPerformancePage_page1-heading-underline"></div>
+          </div>
+          <div>
+            <div
+              id="topPageView-chart"
+              class="topPageView-chart-title topPageView-chart-color"
+            >
+              <h5>PAGE PATH</h5>
+              <h5>PAGE VIEWS</h5>
+              <h5>AVG TIME ON PAGE</h5>
+              <h5>PERCENTAGE EXIT</h5>
+            </div>
+            <div id="topPageView-chart" class="topPageView-chart-overall">
+              <h1>OVERALL</h1>
+              <h1>1800</h1>
+              <h1>40:05 min</h1>
+              <h5></h5>
+            </div>
+            <div id="topPageView-chart" class="topPageView-chart-title">
+              <h5>/home-page</h5>
+              <h5>600</h5>
+              <h5>02:05</h5>
+              <h5>3%</h5>
+            </div>
+            <div id="topPageView-chart" class="topPageView-chart-title">
+              <h5>/home-page</h5>
+              <h5>600</h5>
+              <h5>02:05E</h5>
+              <h5>3%</h5>
+            </div>
+            <div id="topPageView-chart" class="topPageView-chart-title">
+              <h5>/home-page</h5>
+              <h5>600</h5>
+              <h5>02:05E</h5>
+              <h5>3%</h5>
+            </div>
+            <div id="topPageView-chart" class="topPageView-chart-title">
+              <h5>/home-page</h5>
+              <h5>600</h5>
+              <h5>02:05E</h5>
+              <h5>3%</h5>
+            </div>
+            <div id="topPageView-chart" class="topPageView-chart-title">
+              <h5>/home-page</h5>
+              <h5>600</h5>
+              <h5>02:05E</h5>
+              <h5>3%</h5>
+            </div>
+          </div>
+
+          <!--      ended top page views from  here       -->
+
+          <div id="topPageView-container">
+            <h2 class="overAllPerformancePage_page1-saleComparisson-title">
+              TOP KEYWORDS
+            </h2>
+            <div class="overAllPerformancePage_page1-heading-underline"></div>
+          </div>
+          <div>
+            <div
+              id="topkeyword-chart"
+              class="topPageView-chart-title topPageView-chart-color"
+            >
+              <h5>KEYWORD</h5>
+              <h5>CLICKS</h5>
+              <h5>IMMPRESSION</h5>
+              <h5>CTR</h5>
+              <h5>AVG POSTION</h5>
+            </div>
+            <div id="topkeyword-chart" class="topPageView-chart-title">
+              <h5>/home-page</h5>
+              <h5>600</h5>
+              <h5>800</h5>
+              <h5>3%</h5>
+              <h5>1</h5>
+            </div>
+            <div id="topkeyword-chart" class="topPageView-chart-title">
+              <h5>/home-page</h5>
+              <h5>600</h5>
+              <h5>800</h5>
+              <h5>3%</h5>
+              <h5>1</h5>
+            </div>
+            <div id="topkeyword-chart" class="topPageView-chart-title">
+              <h5>/home-page</h5>
+              <h5>600</h5>
+              <h5>800</h5>
+              <h5>3%</h5>
+              <h5>1</h5>
+            </div>
+            <div id="topkeyword-chart" class="topPageView-chart-title">
+              <h5>/home-page</h5>
+              <h5>600</h5>
+              <h5>800</h5>
+              <h5>3%</h5>
+              <h5>1</h5>
+            </div>
+            <div id="topkeyword-chart" class="topPageView-chart-title">
+              <h5>/home-page</h5>
+              <h5>600</h5>
+              <h5>800</h5>
+              <h5>3%</h5>
+              <h5>1</h5>
+            </div>
+            <div id="topkeyword-chart" class="topPageView-chart-title">
+              <h5>/home-page</h5>
+              <h5>600</h5>
+              <h5>800</h5>
+              <h5>3%</h5>
+              <h5>1</h5>
+            </div>
+          </div>
+        </div>
+        <div class="currnet_pageEnd">
+          <!-- <img src="./Vector_2.svg" alt="" /> -->
+          <div class="pagedown_logo-container"></div>
+
+          <p class="currnet_pageEnd-number">Page 1 of</p>
+        </div>
+      </div>
+
+      <!-- started convesion funnel from here -->
+
+      <div id="convesionFunnel-container">
+        <div class="pageup_logo">
+          <!-- <img src="./Vector_1.svg" alt="logo" /> -->
+          <div>
+            <div class="pageup_left_logo-container"></div>
+            <div style="width: 100%; display: flex; justify-content: flex-end">
+              <div class="pageup_bottom_logo-container"></div>
+            </div>
+          </div>
+        </div>
+        <h2 class="overAllPerformancePage_page1-saleComparisson-title">
+          CONVESION FUNNEL
+        </h2>
+        <div class="overAllPerformancePage_page1-heading-underline"></div>
+        <div class="convesionFunnel-chartContainer">
+          <div id="convesionFunnel-chart">
+            <!-- <img src="./member.svg" alt="" /> -->
+            <img
+              src="https://img.favpng.com/6/16/7/computer-icons-customer-service-icon-design-user-png-favpng-36ih8ZBJx3pFRqbqq66dLAC2z.jpg"
+              alt=""
+            />
+            <h2>848</h2>
+            <!-- <img src="./Polygon_2.svg" alt="" /> -->
+
+            <div class="convesionFunnel-left-arrow-logo"></div>
+            <div id="convesionFunnel-chart-title">
+              <div id="convesionFunnel-chart-titleContainer"></div>
+              <h2>ADS</h2>
+            </div>
+            <!-- <img src="./Polygon_3.svg" alt="" /> -->
+            <div class="convesionFunnel-right-arrow-logo"></div>
+            <h2>248</h2>
+          </div>
+          <div id="convesionFunnel-chart">
+            <img src="" alt="" />
+            <h2>848</h2>
+            <!-- <img src="./Polygon_2.svg" alt="" /> -->
+            <div class="convesionFunnel-left-arrow-logo"></div>
+
+            <div id="convesionFunnel-chart-title">
+              <div id="convesionFunnel-chart-titleContainer"></div>
+              <h2>HOMEPAGE</h2>
+            </div>
+            <!-- <img src="./Polygon_3.svg" alt="" /> -->
+            <div class="convesionFunnel-right-arrow-logo"></div>
+
+            <h2>248</h2>
+          </div>
+          <div id="convesionFunnel-chart">
+            <img src="" alt="" />
+            <h2>848</h2>
+            <!-- <img src="./Polygon_2.svg" alt="" /> -->
+            <div class="convesionFunnel-left-arrow-logo"></div>
+
+            <div id="convesionFunnel-chart-title">
+              <div id="convesionFunnel-chart-titleContainer"></div>
+              <h2>CART</h2>
+            </div>
+            <!-- <img src="./Polygon_3.svg" alt="" /> -->
+            <div class="convesionFunnel-right-arrow-logo"></div>
+
+            <h2>248</h2>
+          </div>
+          <div id="convesionFunnel-chart">
+            <img src="" alt="" />
+            <h2>848</h2>
+            <!-- <img src="./Polygon_2.svg" alt="" /> -->
+            <div class="convesionFunnel-left-arrow-logo"></div>
+
+            <div id="convesionFunnel-chart-title">
+              <div id="convesionFunnel-chart-titleContainer"></div>
+              <h2>PURCHASE</h2>
+            </div>
+            <!-- <img src="./Polygon_3.svg" alt="" /> -->
+            <div class="convesionFunnel-right-arrow-logo"></div>
+
+            <h2>248</h2>
+          </div>
+        </div>
+        <div id="purchase-container">
+          <div id="purchase-box">
+            <p>PURCHASE</p>
+            <h2>848</h2>
+            <h6>60% conversio rate</h6>
+          </div>
+        </div>
+      </div>
+      <div class="currnet_pageEnd">
+        <!-- <img src="./Vector_2.svg" alt="" /> -->
+        <div class="pagedown_logo-container"></div>
+
+        <p class="currnet_pageEnd-number">Page 1 of</p>
+      </div>
+
+      <!-- ended convesion funnel from here -->
+
+      <!-- market place performance started from here  -->
+      <!-- market place performance started from here  -->
+      <!-- market place performance started from here  -->
+      <!-- market place performance started from here  -->
+
+      <div id="marketPlacePerformance">
+        <div class="pageup_logo">
+          <!-- <img src="./Vector_1.svg" alt="logo" /> -->
+          <div>
+            <div class="pageup_left_logo-container"></div>
+            <div style="width: 100%; display: flex; justify-content: flex-end">
+              <div class="pageup_bottom_logo-container"></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h1 class="overAllPerformancePage_page1-heading">
+            MARKETPLACE PERFORMANCE
+          </h1>
+
+          <!-- in overall performance sale report started here  -->
+
+          <h2 class="overAllPerformancePage_page1-saleComparisson-title">
+            OVERALL SALES MARKETPLACE
+          </h2>
+          <div class="overAllPerformancePage_page1-heading-underline"></div>
+          <div class="overAllPerformancePage_page1-totalSales">
+            <h4 class="overAllPerformancePage_page1-totalSales-title">
+              Total sales in months-
+            </h4>
+            <h2>₹4,82,856</h2>
+            <div>
+              <p>compared to last month</p>
+            </div>
+          </div>
+          <div class="overAllPerformancePage_page1-saleComparisson">
+            <h4 class="overAllPerformancePage_page1-saleComparisson-title">
+              SALES COMPARSSION
+            </h4>
+            <div class="overAllPerformancePage_page1-saleComparisson-months">
+              <div
+                class="overAllPerformancePage_page1-saleComparisson-currentMonths"
+              >
+                <div
+                  class="overAllPerformancePage_page1-saleComparisson-currentMonthsIcon"
+                ></div>
+                <h4
+                  class="overAllPerformancePage_page1-saleComparisson-MonthsTitle"
+                >
+                  This month
+                </h4>
+              </div>
+              <div
+                class="overAllPerformancePage_page1-saleComparisson-lastMonths"
+              >
+                <div
+                  class="overAllPerformancePage_page1-saleComparisson-lastMonthsIcon"
+                ></div>
+                <h4
+                  class="overAllPerformancePage_page1-saleComparisson-MonthsTitle"
+                >
+                  Last month
+                </h4>
+              </div>
+            </div>
+          </div>
+          <div
+            class="overAllPerformancePage_page1-saleComparisson-chart-container"
+          >
+            <div class="overAllPerformancePage_page1-saleComparisson-chart">
+              <!--  -->
+              <!--  -->
+              <canvas
+                id="marketPlaceSales"
+                style="height: 350px; width: 900px"
+              ></canvas>
+              <!--  -->
+              <!--  -->
+            </div>
+          </div>
+
+          <div id="topPageView-container">
+            <h2 class="overAllPerformancePage_page1-saleComparisson-title">
+              TOP PERFORMING MARKETPLACES
+            </h2>
+            <div class="overAllPerformancePage_page1-heading-underline"></div>
+          </div>
+          <div>
+            <div
+              id="topkeyword-chart"
+              class="topPageView-chart-title topPageView-chart-color"
+            >
+              <h5>KEYWORD</h5>
+              <h5>CLICKS</h5>
+              <h5>IMMPRESSION</h5>
+              <h5>CTR</h5>
+              <h5>AVG POSTION</h5>
+            </div>
+            <div id="topkeyword-chart" class="topPageView-chart-title">
+              <h5>AMAZON</h5>
+              <h5>600</h5>
+              <h5>800</h5>
+              <h5>3%</h5>
+              <h5>1</h5>
+            </div>
+            <div id="topkeyword-chart" class="topPageView-chart-title">
+              <h5>MYNTRA</h5>
+              <h5>600</h5>
+              <h5>800</h5>
+              <h5>3%</h5>
+              <h5>1</h5>
+            </div>
+            <div id="topkeyword-chart" class="topPageView-chart-title">
+              <h5>NYKAA</h5>
+              <h5>600</h5>
+              <h5>800</h5>
+              <h5>3%</h5>
+              <h5>1</h5>
+            </div>
+            <div id="topkeyword-chart" class="topPageView-chart-title">
+              <h5>/home-page</h5>
+              <h5>600</h5>
+              <h5>800</h5>
+              <h5>3%</h5>
+              <h5>1</h5>
+            </div>
+            <div id="topkeyword-chart" class="topPageView-chart-title">
+              <h5>/home-page</h5>
+              <h5>600</h5>
+              <h5>800</h5>
+              <h5>3%</h5>
+              <h5>1</h5>
+            </div>
+            <div id="topkeyword-chart" class="topPageView-chart-title">
+              <h5>/home-page</h5>
+              <h5>600</h5>
+              <h5>800</h5>
+              <h5>3%</h5>
+              <h5>1</h5>
+            </div>
+          </div>
+
+          <div id="website-container">
+            <h2 class="overAllPerformancePage_page1-saleComparisson-title">
+              ORDERS ON MARKETPLACE
+            </h2>
+            <div class="overAllPerformancePage_page1-heading-underline"></div>
+            <div id="orderThroughWebsite">
+              <div
+                class="overAllPerformancePage_page2-investment-chartFilterContainer"
+              >
+                <div id="orderthroughwebsite-order"></div>
+                <p>ORDER</p>
+              </div>
+              <div
+                class="overAllPerformancePage_page2-investment-chartFilterContainer"
+              >
+                <div id="orderthroughwebsite-cancelOrder"></div>
+                <p>CANCELLED ORDER</p>
+              </div>
+            </div>
+            <div id="chartWithDetails">
+              <div class="overAllPerformancePage_page1-salesByChannel-chart">
+                <!--  -->
+                <!--  -->
+                <canvas id="orderOnMarketPlace"></canvas>
+                <!--  -->
+                <!--  -->
+              </div>
+              <div class="overAllPerformancePage_page1-salesByChannel-details">
+                <div id="orderthroughwebsite-details">
+                  <h5>
+                    This month orders from website was <span>72% .</span> more
+                    then last month
+                  </h5>
+                  <div id="orderthroughwebsite-table">
+                    <h5></h5>
+                    <h5>Total orders</h5>
+                    <h5>Returned ordes</h5>
+                  </div>
+                  <div id="orderthroughwebsite-table">
+                    <h5>This month</h5>
+                    <h5>250</h5>
+                    <h5><span>50</span></h5>
+                  </div>
+                  <div id="orderthroughwebsite-table">
+                    <h5>Last month</h5>
+                    <h5>250</h5>
+                    <h5><span>50</span></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="currnet_pageEnd">
+            <!-- <img src="./Vector_2.svg" alt="" /> -->
+            <div class="pagedown_logo-container"></div>
+
+            <p class="currnet_pageEnd-number">Page 1 of</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- market place performance ended here  -->
+      <!-- market place performance ended here  -->
+      <!-- market place performance ended here  -->
+      <!-- market place performance ended here  -->
+
+      <!-- Amazon Page started here -->
+      <!-- Amazon Page started here -->
+      <!-- Amazon Page started here -->
+      <!-- Amazon Page started here -->
+
+      <div id="marketPlacePerformance">
+        <div class="pageup_logo">
+          <!-- <img src="./Vector_1.svg" alt="logo" /> -->
+          <div>
+            <div class="pageup_left_logo-container"></div>
+            <div style="width: 100%; display: flex; justify-content: flex-end">
+              <div class="pageup_bottom_logo-container"></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h1 class="overAllPerformancePage_page1-heading">AMAZON</h1>
+
+          <!-- in overall performance sale report started here  -->
+
+          <h2 class="overAllPerformancePage_page1-saleComparisson-title">
+            SALES ON AMAZON
+          </h2>
+          <div class="overAllPerformancePage_page1-heading-underline"></div>
+          <div class="overAllPerformancePage_page1-totalSales">
+            <h4 class="overAllPerformancePage_page1-totalSales-title">
+              Total sales in months-
+            </h4>
+            <h2>₹4,82,856</h2>
+            <div>
+              <p>compared to last month</p>
+            </div>
+          </div>
+          <div class="overAllPerformancePage_page1-saleComparisson">
+            <h4 class="overAllPerformancePage_page1-saleComparisson-title">
+              SALES COMPARSSION
+            </h4>
+            <div class="overAllPerformancePage_page1-saleComparisson-months">
+              <div
+                class="overAllPerformancePage_page1-saleComparisson-currentMonths"
+              >
+                <div
+                  class="overAllPerformancePage_page1-saleComparisson-currentMonthsIcon"
+                ></div>
+                <h4
+                  class="overAllPerformancePage_page1-saleComparisson-MonthsTitle"
+                >
+                  This month
+                </h4>
+              </div>
+              <div
+                class="overAllPerformancePage_page1-saleComparisson-lastMonths"
+              >
+                <div
+                  class="overAllPerformancePage_page1-saleComparisson-lastMonthsIcon"
+                ></div>
+                <h4
+                  class="overAllPerformancePage_page1-saleComparisson-MonthsTitle"
+                >
+                  Last month
+                </h4>
+              </div>
+            </div>
+          </div>
+          <div
+            class="overAllPerformancePage_page1-saleComparisson-chart-container"
+          >
+            <div class="overAllPerformancePage_page1-saleComparisson-chart">
+              <!--  -->
+              <!--  -->
+              <canvas id="salesOnAmazon"></canvas>
+              <!--  -->
+              <!--  -->
+            </div>
+          </div>
+
+          <h4 class="costBreakDown-title">COST BREAKDOWN</h4>
+
+          <!-- Return on investment seaction 1  -->
+
+          <div class="overAllPerformancePage_page2-investment">
+            <div class="overAllPerformancePage_page2-investment-chartCantainer">
+              <div>
+                <div
+                  class="overAllPerformancePage_page2-investment-chartCantainer-header"
+                >
+                  <h5>Last month report</h5>
+                  <div
+                    class="overAllPerformancePage_page2-investment-chartFilter"
+                  >
+                    <div
+                      class="overAllPerformancePage_page2-investment-chartFilterContainer"
+                    >
+                      <div
+                        class="overAllPerformancePage_page2-investment-returnIcon"
+                      ></div>
+                      <p>RETURN</p>
+                    </div>
+                    <div
+                      class="overAllPerformancePage_page2-investment-chartFilterContainer"
+                    >
+                      <div
+                        class="overAllPerformancePage_page2-investment-investmentIcon"
+                      ></div>
+                      <p>INVESTEMENT</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="overAllPerformancePage_page2-investment-chart">
+                  <!--  -->
+                  <!--  -->
+                  <div class="salesOnAmazon-chart">
+                    <div class="Dounaut-chart">
+                      <canvas id="costBreakDownOfLastMonth"></canvas>
+                    </div>
+                  </div>
+                  <!--  -->
+                  <!--  -->
+                </div>
+              </div>
+              <div class="overAllPerformancePage_page2-investment-details">
+                <h5>Last month return was 68% .Major investment were on</h5>
+                <div class="overAllPerformancePage_page2-investment-table">
+                  <h5></h5>
+                  <h5>Campaign Name</h5>
+                  <h5>Investement</h5>
+                  <h5>ROI</h5>
+                </div>
+                <div class="overAllPerformancePage_page2-investment-table">
+                  <div></div>
+                  <h5>Indian Food</h5>
+                  <h5>₹5800</h5>
+                  <h5>28%</h5>
+                </div>
+                <div class="overAllPerformancePage_page2-investment-table">
+                  <div></div>
+                  <h5>Food</h5>
+                  <h5>₹5800</h5>
+                  <h5>28%</h5>
+                </div>
+                <div class="overAllPerformancePage_page2-investment-table">
+                  <div></div>
+                  <h5>Indian Food</h5>
+                  <h5>₹5800</h5>
+                  <h5>28%</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Return on investment seaction 2  -->
+
+          <div class="overAllPerformancePage_page2-investment">
+            <div class="overAllPerformancePage_page2-investment-chartCantainer">
+              <div>
+                <div
+                  class="overAllPerformancePage_page2-investment-chartCantainer-header"
+                >
+                  <h5>This month report</h5>
+                  <div
+                    class="overAllPerformancePage_page2-investment-chartFilter"
+                  >
+                    <div
+                      class="overAllPerformancePage_page2-investment-chartFilterContainer"
+                    >
+                      <div
+                        class="overAllPerformancePage_page2-investment-returnIcon"
+                      ></div>
+                      <p>RETURN</p>
+                    </div>
+                    <div
+                      class="overAllPerformancePage_page2-investment-chartFilterContainer"
+                    >
+                      <div
+                        class="overAllPerformancePage_page2-investment-investmentIcon"
+                      ></div>
+                      <p>INVESTEMENT</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="overAllPerformancePage_page2-investment-chart">
+                  <!--  -->
+                  <!--  -->
+                  <div class="salesOnAmazon-chart">
+                    <div class="Dounaut-chart">
+                      <canvas id="costBreakDownOfThisMonth"></canvas>
+                    </div>
+                  </div>
+                  <!--  -->
+                  <!--  -->
+                </div>
+              </div>
+              <div class="overAllPerformancePage_page2-investment-details">
+                <h5>
+                  This month return was <span>72%</span> .Major investment were
+                  on
+                </h5>
+                <div class="overAllPerformancePage_page2-investment-table">
+                  <h5></h5>
+                  <h5>Campaign Name</h5>
+                  <h5>Investement</h5>
+                  <h5>ROI</h5>
+                </div>
+                <div class="overAllPerformancePage_page2-investment-table">
+                  <div></div>
+                  <h5>Indian Food</h5>
+                  <h5>₹5800</h5>
+                  <h5>28%</h5>
+                </div>
+                <div class="overAllPerformancePage_page2-investment-table">
+                  <div></div>
+                  <h5>Food</h5>
+                  <h5>₹5800</h5>
+                  <h5>28%</h5>
+                </div>
+                <div class="overAllPerformancePage_page2-investment-table">
+                  <div></div>
+                  <h5>Indian Food</h5>
+                  <h5>₹5800</h5>
+                  <h5>28%</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="currnet_pageEnd">
+            <!-- <img src="./Vector_2.svg" alt="" /> -->
+            <div class="pagedown_logo-container"></div>
+
+            <p class="currnet_pageEnd-number">Page 1 of</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Amzon page Ended here  -->
+      <!-- Amzon page Ended here  -->
+      <!-- Amzon page Ended here  -->
+      <!-- Amzon page Ended here  -->
+
+      <!-- Order on Amazon started here  -->
+      <!-- Order on Amazon started here  -->
+      <!-- Order on Amazon started here  -->
+      <!-- Order on Amazon started here  -->
+
+      <div id="marketPlacePerformance">
+        <div class="pageup_logo">
+          <!-- <img src="./Vector_1.svg" alt="logo" /> -->
+          <div>
+            <div class="pageup_left_logo-container"></div>
+            <div style="width: 100%; display: flex; justify-content: flex-end">
+              <div class="pageup_bottom_logo-container"></div>
+            </div>
+          </div>
+        </div>
+        <div id="website-container">
+          <h2 class="overAllPerformancePage_page1-saleComparisson-title">
+            ORDERS ON AMAZON
+          </h2>
+          <div class="overAllPerformancePage_page1-heading-underline"></div>
+          <div id="orderThroughWebsite">
+            <div
+              class="overAllPerformancePage_page2-investment-chartFilterContainer"
+            >
+              <div id="orderthroughwebsite-order"></div>
+              <p>ORDER</p>
+            </div>
+            <div
+              class="overAllPerformancePage_page2-investment-chartFilterContainer"
+            >
+              <div id="orderthroughwebsite-cancelOrder"></div>
+              <p>CANCELLED ORDER</p>
+            </div>
+          </div>
+          <div id="chartWithDetails">
+            <div class="overAllPerformancePage_page1-salesByChannel-chart">
+              <!--  -->
+              <!--  -->
+              <canvas id="orderOnAmazon"></canvas>
+              <!--  -->
+              <!--  -->
+            </div>
+            <div class="overAllPerformancePage_page1-salesByChannel-details">
+              <div id="orderthroughwebsite-details">
+                <h5>
+                  This month orders from website was <span>72% .</span> more
+                  then last month
+                </h5>
+                <div id="orderthroughwebsite-table">
+                  <h5></h5>
+                  <h5>Total orders</h5>
+                  <h5>Returned ordes</h5>
+                </div>
+                <div id="orderthroughwebsite-table">
+                  <h5>This month</h5>
+                  <h5>250</h5>
+                  <h5><span>50</span></h5>
+                </div>
+                <div id="orderthroughwebsite-table">
+                  <h5>Last month</h5>
+                  <h5>250</h5>
+                  <h5><span>50</span></h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="overAllPerformancePage_page1-saleComparisson-title">
+            CAMPAIGNS ON AMAZON
+          </h2>
+          <div class="overAllPerformancePage_page1-salesByChannel-content">
+            <div class="overAllPerformancePage_page1-salesByChannel-chart">
+              <!--  -->
+              <!--  -->
+              <canvas id="campaignOnAmazon"></canvas>
+              <!--  -->
+              <!--  -->
+            </div>
+          </div>
+        </div>
+        <div id="orderByAmazon" class="currnet_pageEnd">
+          <!-- <img src="./Vector_2.svg" alt="" /> -->
+          <div class="pagedown_logo-container"></div>
+
+          <p class="currnet_pageEnd-number">Page 1 of</p>
+        </div>
+      </div>
+
+      <!-- Order on Amazon Ended here  -->
+      <!-- Order on Amazon Ended here  -->
+      <!-- Order on Amazon Ended here  -->
+      <!-- Order on Amazon Ended here  -->
+    </div>
+
+    <!--      Ended body seaction from here ####       -->
+
+    <!-- from here we start our script tag for chart @@@@ -->
+
+    <script>
+      // chart for (date by sale comparission ) ended from here
+
+      var salesComparissionOfThisMonth = [
+        {
+          x: "2021-01-01",
+          y: 10,
+        },
+        {
+          x: "2021-01-02",
+          y: 20,
+        },
+        {
+          x: "2021-01-04",
+          y: 20,
+        },
+        {
+          x: "2021-01-05",
+          y: 30,
+        },
+        {
+          x: "2021-01-10",
+          y: 50,
+        },
+        {
+          x: "2021-01-17",
+          y: 40,
+        },
+        {
+          x: "2021-01-28",
+          y: 50,
+        },
+      ];
+
+      var salesComparissionOfLastMonth = [
+        {
+          x: "2021-01-01",
+          y: 10,
+        },
+
+        {
+          x: "2021-01-05",
+          y: 20,
+        },
+        {
+          x: "2021-01-06",
+          y: 40,
+        },
+        {
+          x: "2021-01-07",
+          y: 40,
+        },
+        {
+          x: "2021-01-25",
+          y: 45,
+        },
+      ];
+
+      var ctx = document.getElementById("salesComparission");
+
+      var salesComparission = new Chart(ctx, {
+        type: "line",
+        options: {
+          scales: {
+            xAxes: [
+              {
+                type: "time",
+                time: {
+                  unit: "week",
+                  displayFormats: {
+                    day: "DD/MM/YYYY",
+                  },
+                },
+              },
+            ],
+          },
+        },
+        data: {
+          labels: ["2021-01-01", "2021-1-10", "2021-1-30"],
+          datasets: [
+            {
+              label: "This Month",
+              data: salesComparissionOfThisMonth,
+              borderColor: "#4AD9D9",
+              borderWidth: 7,
+              borderRadius: 0,
+              fill: false,
+            },
+            {
+              label: "Last Month",
+              data: salesComparissionOfLastMonth,
+              borderColor: "#2C2C2C",
+              borderWidth: 7,
+              fill: false,
+            },
+          ],
+        },
+      });
+
+      // chart for (date by sale comparission ) ended from here
+
+      //    chart for   (Sale by Channel)  started from here
+
+      var saleByChannelLabel = [
+        "AMAZON",
+        "FILIPKART",
+        "WEBSITE",
+        "OFFLINE",
+        "NYKAA",
+      ];
+      var saleByChannelData = [10000, 20000, 40000, 80000, 4000];
+
+      var saleByChannel = new Chart("salesByChannel", {
+        type: "bar",
+        data: {
+          labels: saleByChannelLabel,
+          datasets: [
+            {
+              data: saleByChannelData,
+              backgroundColor: [
+                "#076D72",
+                "#076D72",
+                "#076D72",
+                "#076D72",
+                "#076D72",
+              ],
+            },
+          ],
+        },
+        options: {
+          scales: {
+            xAxes: [
+              {
+                gridLines: {
+                  display: false,
+                },
+                barPercentage: 0.4,
+              },
+            ],
+            yAxes: [
+              {
+                // gridLines:{
+                //   display: false
+                // },
+                ticks: {
+                  beginAtZero: true,
+                },
+                gridThickness: 20,
+              },
+            ],
+          },
+          legend: {
+            display: false,
+          },
+        },
+      });
+
+      //    chart for   (Sale by Channel)  ended from here
+
+      // chart for (marketing spent) started here
+
+      var marketingSpentLabel = ["LAST MONTH", "THIS MONTH"];
+      var marketingSpentDataForLastMonth = [10000, 20000];
+      var marketingSpentDataForThisMonth = [22000, 25000];
+
+      var saleByChannel = new Chart("marketingSpent", {
+        type: "bar",
+        data: {
+          labels: marketingSpentLabel,
+          datasets: [
+            {
+              data: marketingSpentDataForLastMonth,
+              backgroundColor: ["#11A8AF", "#076D72"],
+            },
+            {
+              data: marketingSpentDataForThisMonth,
+              backgroundColor: ["#11A8AF", "#076D72"],
+            },
+          ],
+        },
+        options: {
+          scales: {
+            xAxes: [
+              {
+                gridLines: {
+                  display: false,
+                },
+                barPercentage: 0.4,
+              },
+            ],
+            yAxes: [
+              {
+                // gridLines:{
+                //   display: false
+                // },
+                ticks: {
+                  beginAtZero: true,
+                },
+                gridThickness: 20,
+              },
+            ],
+          },
+          legend: {
+            display: false,
+          },
+        },
+      });
+
+      // chart for (marketing spent) ended here
+
+      // chart for (Return of investement of lastmonth) started here
+
+      var returnOfInvestmentLabelOfLastMonth = ["RETURN", "INVESTMENT"];
+      var returnOfInvestmentValueOfLastMonth = [65, 20];
+
+      var returnOfInvestmentOfLastMonth = new Chart(
+        "returnOfInvestmentOfLastMonth",
+        {
+          type: "doughnut",
+          data: {
+            labels: returnOfInvestmentLabelOfLastMonth,
+            datasets: [
+              {
+                data: returnOfInvestmentValueOfLastMonth,
+                backgroundColor: ["#076D72", "#11A8AF"],
+              },
+            ],
+          },
+          options: {
+            legend: {
+              display: false,
+            },
+          },
+        }
+      );
+
+      // chart for (Return of investement for lastmonth) ended here
+
+      // chart for (Return of investement for thismonth) started here
+
+      var returnOfInvestmentLabelOfThisMonth = ["RETURN", "INVESTMENT"];
+      var returnOfInvestmentValueOfThisMonth = [35, 25];
+
+      var returnOfInvestmentOfThisMonth = new Chart(
+        "returnOfInvestmentOfThisMonth",
+        {
+          type: "doughnut",
+          data: {
+            labels: returnOfInvestmentLabelOfThisMonth,
+            datasets: [
+              {
+                data: returnOfInvestmentValueOfThisMonth,
+                backgroundColor: ["#076D72", "#11A8AF"],
+              },
+            ],
+          },
+          options: {
+            legend: {
+              display: false,
+            },
+          },
+        }
+      );
+      // chart for (Return of investement for thismonth) ended here
+
+      // chart for (date by sale comparission of website performance ) started from here
+
+      var salesComparissionWebsiteThisMonth = [
+        {
+          x: "2021-01-01",
+          y: 10,
+        },
+        {
+          x: "2021-01-02",
+          y: 20,
+        },
+        {
+          x: "2021-01-04",
+          y: 20,
+        },
+        {
+          x: "2021-01-05",
+          y: 30,
+        },
+        {
+          x: "2021-01-10",
+          y: 50,
+        },
+        {
+          x: "2021-01-17",
+          y: 40,
+        },
+        {
+          x: "2021-01-28",
+          y: 50,
+        },
+      ];
+
+      var salesComparissionWebsiteLastMonth = [
+        {
+          x: "2021-01-01",
+          y: 10,
+        },
+
+        {
+          x: "2021-01-05",
+          y: 20,
+        },
+        {
+          x: "2021-01-06",
+          y: 40,
+        },
+        {
+          x: "2021-01-07",
+          y: 40,
+        },
+        {
+          x: "2021-01-25",
+          y: 45,
+        },
+      ];
+
+      var ctx1 = document.getElementById("salesComparissionWebsite");
+
+      var salesComparissionWebsite = new Chart(ctx1, {
+        type: "line",
+        options: {
+          scales: {
+            xAxes: [
+              {
+                type: "time",
+                time: {
+                  unit: "week",
+                  displayFormats: {
+                    day: "DD/MM/YYYY",
+                  },
+                },
+              },
+            ],
+          },
+        },
+        data: {
+          labels: ["2021-01-01", "2021-1-10", "2021-1-30"],
+          datasets: [
+            {
+              label: "This Month",
+              data: salesComparissionWebsiteThisMonth,
+              borderColor: "#4AD9D9",
+              borderWidth: 7,
+              borderRadius: 0,
+              fill: false,
+            },
+            {
+              label: "Last Month",
+              data: salesComparissionWebsiteLastMonth,
+              borderColor: "#2C2C2C",
+              borderWidth: 7,
+              fill: false,
+            },
+          ],
+        },
+      });
+
+      // chart for (date by sale comparission of website performance ) ended from here
+
+      // chart for (order through website report) started here
+
+      var orderReportLabel = ["LAST MONTH", "THIS MONTH"];
+      var orderReportOfLastMonth = [10000, 20000];
+      var orderReportOfThisMonth = [22000, 25000];
+
+      var orderThroughWebsiteReport = new Chart("orderThroughWebsiteReport", {
+        type: "bar",
+        data: {
+          labels: orderReportLabel,
+          datasets: [
+            {
+              data: orderReportOfLastMonth,
+              backgroundColor: ["#ff7676", "#076D72"],
+            },
+            {
+              data: orderReportOfThisMonth,
+              backgroundColor: ["#ff7676", "#076D72"],
+            },
+          ],
+        },
+        options: {
+          scales: {
+            xAxes: [
+              {
+                gridLines: {
+                  display: false,
+                },
+                barPercentage: 0.4,
+              },
+            ],
+            yAxes: [
+              {
+                // gridLines:{
+                //   display: false
+                // },
+                ticks: {
+                  beginAtZero: true,
+                },
+                gridThickness: 20,
+              },
+            ],
+          },
+          legend: {
+            display: false,
+          },
+        },
+      });
+
+      // chart for (order through website report) ended here
+
+      // chart of (user from diffrent source) started from here
+
+      var userSourceLabels = ["ORGANIC", "PAID", "OTHERS"];
+      var userSourceValues = [35, 25, 15];
+
+      var userFromDiffrentSource = new Chart("userFromDiffrentSource", {
+        type: "doughnut",
+        data: {
+          labels: userSourceLabels,
+          datasets: [
+            {
+              data: userSourceValues,
+              backgroundColor: ["#076D72", "#11A8AF", "#8dd5d9"],
+            },
+          ],
+        },
+        options: {
+          legend: {
+            display: false,
+          },
+        },
+      });
+
+      // chart of (user from diffrent source) ended from here
+
+      // Chart of (marketPlace performance) started here
+
+      var marketPlaceSalesOfThisMonth = [
+        {
+          x: "2021-01-01",
+          y: 10,
+        },
+        {
+          x: "2021-01-02",
+          y: 20,
+        },
+        {
+          x: "2021-01-04",
+          y: 20,
+        },
+        {
+          x: "2021-01-05",
+          y: 30,
+        },
+        {
+          x: "2021-01-10",
+          y: 50,
+        },
+        {
+          x: "2021-01-17",
+          y: 40,
+        },
+        {
+          x: "2021-01-28",
+          y: 50,
+        },
+      ];
+
+      var marketPlaceSalesOfLastMonth = [
+        {
+          x: "2021-01-01",
+          y: 10,
+        },
+
+        {
+          x: "2021-01-05",
+          y: 20,
+        },
+        {
+          x: "2021-01-06",
+          y: 40,
+        },
+        {
+          x: "2021-01-07",
+          y: 40,
+        },
+        {
+          x: "2021-01-25",
+          y: 45,
+        },
+      ];
+
+      var ctx2 = document.getElementById("marketPlaceSales");
+
+      var marketPlaceSales = new Chart(ctx2, {
+        type: "line",
+        options: {
+          scales: {
+            xAxes: [
+              {
+                type: "time",
+                time: {
+                  unit: "week",
+                  displayFormats: {
+                    day: "DD/MM/YYYY",
+                  },
+                },
+              },
+            ],
+          },
+        },
+        data: {
+          labels: ["2021-01-01", "2021-1-10", "2021-1-30"],
+          datasets: [
+            {
+              label: "This Month",
+              data: marketPlaceSalesOfThisMonth,
+              borderColor: "#4AD9D9",
+              borderWidth: 7,
+              borderRadius: 0,
+              fill: false,
+            },
+            {
+              label: "Last Month",
+              data: marketPlaceSalesOfLastMonth,
+              borderColor: "#2C2C2C",
+              borderWidth: 7,
+              fill: false,
+            },
+          ],
+        },
+      });
+
+      // Chart of (marketPlace performance) ended here
+
+      // chart of (order on market place) started from here
+
+      var orderOnMarketPlaceLabel = ["LAST MONTH", "THIS MONTH"];
+      var orderOnMarketPlaceOfLastMonth = [10000, 20000];
+      var orderOnMarketPlaceOfThisMonth = [22000, 25000];
+
+      var orderOnMarketPlace = new Chart("orderOnMarketPlace", {
+        type: "bar",
+        data: {
+          labels: orderOnMarketPlaceLabel,
+          datasets: [
+            {
+              data: orderOnMarketPlaceOfLastMonth,
+              backgroundColor: ["#ff7676", "#076D72"],
+            },
+            {
+              data: orderOnMarketPlaceOfThisMonth,
+              backgroundColor: ["#ff7676", "#076D72"],
+            },
+          ],
+        },
+        options: {
+          scales: {
+            xAxes: [
+              {
+                gridLines: {
+                  display: false,
+                },
+                barPercentage: 0.4,
+              },
+            ],
+            yAxes: [
+              {
+                // gridLines:{
+                //   display: false
+                // },
+                ticks: {
+                  beginAtZero: true,
+                },
+                gridThickness: 20,
+              },
+            ],
+          },
+          legend: {
+            display: false,
+          },
+        },
+      });
+
+      // chart of (order on market place) ended from here
+
+      // Chart of (Sales on Amazon) started here
+
+      var salesOnAmazonOfThisMonth = [
+        {
+          x: "2021-01-01",
+          y: 10,
+        },
+        {
+          x: "2021-01-02",
+          y: 20,
+        },
+        {
+          x: "2021-01-04",
+          y: 20,
+        },
+        {
+          x: "2021-01-05",
+          y: 30,
+        },
+        {
+          x: "2021-01-10",
+          y: 50,
+        },
+        {
+          x: "2021-01-17",
+          y: 40,
+        },
+        {
+          x: "2021-01-28",
+          y: 50,
+        },
+      ];
+
+      var salesOnAmazonOfLastMonth = [
+        {
+          x: "2021-01-01",
+          y: 10,
+        },
+
+        {
+          x: "2021-01-05",
+          y: 20,
+        },
+        {
+          x: "2021-01-06",
+          y: 40,
+        },
+        {
+          x: "2021-01-07",
+          y: 40,
+        },
+        {
+          x: "2021-01-25",
+          y: 45,
+        },
+      ];
+
+      var ctx3 = document.getElementById("salesOnAmazon");
+
+      var salesOnAmazon = new Chart(ctx3, {
+        type: "line",
+        options: {
+          scales: {
+            xAxes: [
+              {
+                type: "time",
+                time: {
+                  unit: "week",
+                  displayFormats: {
+                    day: "DD/MM/YYYY",
+                  },
+                },
+              },
+            ],
+          },
+        },
+        data: {
+          labels: ["2021-01-01", "2021-1-10", "2021-1-30"],
+          datasets: [
+            {
+              label: "This Month",
+              data: salesOnAmazonOfThisMonth,
+              borderColor: "#4AD9D9",
+              borderWidth: 7,
+              borderRadius: 0,
+              fill: false,
+            },
+            {
+              label: "Last Month",
+              data: salesOnAmazonOfLastMonth,
+              borderColor: "#2C2C2C",
+              borderWidth: 7,
+              fill: false,
+            },
+          ],
+        },
+      });
+
+      // Chart of (Sales on Amazon) Ended here
+
+      // Chart of (Cost Break down of last month) started here
+
+      var costBreakDownLabels = ["RETURN", "INVESTEMENT"];
+      var costBreakDownValues = [35, 25];
+
+      var costBreakDownOfLastMonth = new Chart("costBreakDownOfLastMonth", {
+        type: "doughnut",
+        data: {
+          labels: costBreakDownLabels,
+          datasets: [
+            {
+              data: costBreakDownValues,
+              backgroundColor: ["#076D72", "#11A8AF"],
+            },
+          ],
+        },
+        options: {
+          legend: {
+            display: false,
+          },
+        },
+      });
+
+      // Chart of (Cost Break down of last month) Ended here
+
+      // Chart of (Cost Break down of this month) started here
+
+      var costBreakDownOfThisMonthLabels = ["RETURN", "INVESTEMENT"];
+      var costBreakDownOfThisMonthValues = [35, 25];
+
+      var costBreakDownOfThisMonth = new Chart("costBreakDownOfThisMonth", {
+        type: "doughnut",
+        data: {
+          labels: costBreakDownOfThisMonthLabels,
+          datasets: [
+            {
+              data: costBreakDownOfThisMonthValues,
+              backgroundColor: ["#076D72", "#11A8AF"],
+            },
+          ],
+        },
+        options: {
+          legend: {
+            display: false,
+          },
+        },
+      });
+
+      // Chart of (Cost Break down of this month) Ended here
+
+      // chart of (order on Amazon) started from here
+
+      var orderOnAmazonLabel = ["LAST MONTH", "THIS MONTH"];
+      var orderOnAmazonOfLastMonth = [10000, 20000];
+      var orderOnAmazonOfThisMonth = [22000, 25000];
+
+      var orderOnAmazon = new Chart("orderOnAmazon", {
+        type: "bar",
+        data: {
+          labels: orderOnAmazonLabel,
+          datasets: [
+            {
+              data: orderOnAmazonOfLastMonth,
+              backgroundColor: ["#ff7676", "#076D72"],
+            },
+            {
+              data: orderOnAmazonOfThisMonth,
+              backgroundColor: ["#ff7676", "#076D72"],
+            },
+          ],
+        },
+        options: {
+          scales: {
+            xAxes: [
+              {
+                gridLines: {
+                  display: false,
+                },
+                barPercentage: 0.4,
+              },
+            ],
+            yAxes: [
+              {
+                // gridLines:{
+                //   display: false
+                // },
+                ticks: {
+                  beginAtZero: true,
+                },
+                gridThickness: 20,
+              },
+            ],
+          },
+          legend: {
+            display: false,
+          },
+        },
+      });
+
+      // chart of (order on Amazon) ended from here
+
+      //    chart for   (Campaign on Amazon)  started from here
+
+      var campaignOnAmazonLabel = [
+        "MADE IN INDIA",
+        "FILIPKART",
+        "WEBSITE",
+        "OFFLINE",
+        "NYKAA",
+      ];
+      var campaignOnAmazonData = [10000, 20000, 40000, 80000, 4000];
+
+      var campaignOnAmazon = new Chart("campaignOnAmazon", {
+        type: "bar",
+        data: {
+          labels: campaignOnAmazonLabel,
+          datasets: [
+            {
+              data: campaignOnAmazonData,
+              backgroundColor: [
+                "#076D72",
+                "#076D72",
+                "#076D72",
+                "#076D72",
+                "#076D72",
+              ],
+            },
+          ],
+        },
+        options: {
+          scales: {
+            xAxes: [
+              {
+                gridLines: {
+                  display: false,
+                },
+                barPercentage: 0.4,
+              },
+            ],
+            yAxes: [
+              {
+                // gridLines:{
+                //   display: false
+                // },
+                ticks: {
+                  beginAtZero: true,
+                },
+                gridThickness: 20,
+              },
+            ],
+          },
+          legend: {
+            display: false,
+          },
+        },
+      });
+
+      //    chart for   (Campaign on Amazon)  ended from here
+    </script>
+  </body>
+</html>
